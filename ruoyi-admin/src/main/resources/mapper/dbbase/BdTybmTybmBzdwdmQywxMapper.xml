@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dbbase.mapper.BdTybmTybmBzdwdmQywxMapper">
+    
+    <resultMap type="BdTybmTybmBzdwdmQywx" id="BdTybmTybmBzdwdmQywxResult">
+        <result property="sjbmdm"    column="SJBMDM"    />
+        <result property="sjbmmc"    column="SJBMMC"    />
+        <result property="dwdm"    column="DWDM"    />
+        <result property="dwmc"    column="DWMC"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectBdTybmTybmBzdwdmQywxVo">
+        select SJBMDM, SJBMMC, DWDM, DWMC, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from bd_tybm_tybm_bzdwdm_qywx
+    </sql>
+
+    <select id="selectBdTybmTybmBzdwdmQywxList" parameterType="BdTybmTybmBzdwdmQywx" resultMap="BdTybmTybmBzdwdmQywxResult">
+        <include refid="selectBdTybmTybmBzdwdmQywxVo"/>
+        <where>  
+            <if test="sjbmdm != null  and sjbmdm != ''"> and SJBMDM = #{sjbmdm}</if>
+            <if test="sjbmmc != null  and sjbmmc != ''"> and SJBMMC = #{sjbmmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and DWDM = #{dwdm}</if>
+            <if test="dwmc != null  and dwmc != ''"> and DWMC like concat('%', #{dwmc}, '%')</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+    
+    <select id="selectBdTybmTybmBzdwdmQywxById" parameterType="String" resultMap="BdTybmTybmBzdwdmQywxResult">
+        <include refid="selectBdTybmTybmBzdwdmQywxVo"/>
+        where SJBMDM = #{sjbmdm}
+    </select>
+        
+    <insert id="insertBdTybmTybmBzdwdmQywx" parameterType="BdTybmTybmBzdwdmQywx">
+        insert into bd_tybm_tybm_bzdwdm_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sjbmdm != null">SJBMDM,</if>
+            <if test="sjbmmc != null">SJBMMC,</if>
+            <if test="dwdm != null">DWDM,</if>
+            <if test="dwmc != null">DWMC,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sjbmdm != null">#{sjbmdm},</if>
+            <if test="sjbmmc != null">#{sjbmmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBdTybmTybmBzdwdmQywx" parameterType="BdTybmTybmBzdwdmQywx">
+        update bd_tybm_tybm_bzdwdm_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sjbmmc != null">SJBMMC = #{sjbmmc},</if>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="dwmc != null">DWMC = #{dwmc},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where SJBMDM = #{sjbmdm}
+    </update>
+
+    <delete id="deleteBdTybmTybmBzdwdmQywxById" parameterType="String">
+        delete from bd_tybm_tybm_bzdwdm_qywx where SJBMDM = #{sjbmdm}
+    </delete>
+
+    <delete id="deleteBdTybmTybmBzdwdmQywxByIds" parameterType="String">
+        delete from bd_tybm_tybm_bzdwdm_qywx where SJBMDM in 
+        <foreach item="sjbmdm" collection="array" open="(" separator="," close=")">
+            #{sjbmdm}
+        </foreach>
+    </delete>
+</mapper>

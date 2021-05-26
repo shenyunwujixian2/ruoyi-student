@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.offline.mapper.XgxtXgxtBjfdyxxQywxMapper">
+
+    <resultMap type="XgxtXgxtBjfdyxxQywx" id="XgxtXgxtBjfdyxxQywxResult">
+        <result property="bjxxbh"    column="BJXXBH"    />
+        <result property="bjdm"    column="BJDM"    />
+        <result property="bjmc"    column="BJMC"    />
+        <result property="fdy"    column="FDY"    />
+        <result property="fdyjzgh"    column="FDYJZGH"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectXgxtXgxtBjfdyxxQywxVo">
+        select BJXXBH, BJDM, BJMC, FDY, FDYJZGH, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from xgxt_xgxt_bjfdyxx_qywx
+    </sql>
+
+    <select id="selectXgxtXgxtBjfdyxxQywxList" parameterType="XgxtXgxtBjfdyxxQywx" resultMap="XgxtXgxtBjfdyxxQywxResult">
+        <include refid="selectXgxtXgxtBjfdyxxQywxVo"/>
+        <where>
+            <if test="bjxxbh != null  and bjxxbh != ''"> and BJXXBH = #{bjxxbh}</if>
+            <if test="bjdm != null  and bjdm != ''"> and BJDM = #{bjdm}</if>
+            <if test="bjmc != null  and bjmc != ''"> and BJMC = #{bjmc}</if>
+            <if test="fdy != null  and fdy != ''"> and FDY = #{fdy}</if>
+            <if test="fdyjzgh != null  and fdyjzgh != ''"> and FDYJZGH = #{fdyjzgh}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+
+    <select id="selectXgxtXgxtBjfdyxxQywxById" parameterType="String" resultMap="XgxtXgxtBjfdyxxQywxResult">
+        <include refid="selectXgxtXgxtBjfdyxxQywxVo"/>
+        where BJXXBH = #{bjxxbh}
+    </select>
+
+    <insert id="insertXgxtXgxtBjfdyxxQywx" parameterType="XgxtXgxtBjfdyxxQywx">
+        insert into xgxt_xgxt_bjfdyxx_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bjxxbh != null">BJXXBH,</if>
+            <if test="bjdm != null">BJDM,</if>
+            <if test="bjmc != null">BJMC,</if>
+            <if test="fdy != null">FDY,</if>
+            <if test="fdyjzgh != null">FDYJZGH,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bjxxbh != null">#{bjxxbh},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="bjmc != null">#{bjmc},</if>
+            <if test="fdy != null">#{fdy},</if>
+            <if test="fdyjzgh != null">#{fdyjzgh},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateXgxtXgxtBjfdyxxQywx" parameterType="XgxtXgxtBjfdyxxQywx">
+        update xgxt_xgxt_bjfdyxx_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bjdm != null">BJDM = #{bjdm},</if>
+            <if test="bjmc != null">BJMC = #{bjmc},</if>
+            <if test="fdy != null">FDY = #{fdy},</if>
+            <if test="fdyjzgh != null">FDYJZGH = #{fdyjzgh},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where BJXXBH = #{bjxxbh}
+    </update>
+
+    <delete id="deleteXgxtXgxtBjfdyxxQywxById" parameterType="String">
+        delete from xgxt_xgxt_bjfdyxx_qywx where BJXXBH = #{bjxxbh}
+    </delete>
+
+    <delete id="deleteXgxtXgxtBjfdyxxQywxByIds" parameterType="String">
+        delete from xgxt_xgxt_bjfdyxx_qywx where BJXXBH in
+        <foreach item="bjxxbh" collection="array" open="(" separator="," close=")">
+            #{bjxxbh}
+        </foreach>
+    </delete>
+
+    <select id="getMapList"  parameterType="java.util.HashMap"  resultType="java.util.HashMap">
+        SELECT b.lxdh,
+        a.BJXXBH as bjxxbh,
+        a.BJDM as bjdm,
+        a.BJMC as bjmc,
+        a.FDY as fdy,
+        a.FDYJZGH as fdyjzgh,
+        a.DC_DCFIELDAUD as dcDcfieldaud,
+        a.DC_DCDATADATE as dcDcdatadate,
+        a.DC_DCTIMESTAMP as dcDctimestamp
+        FROM xgxt_xgxt_bjfdyxx_qywx as a
+        LEFT JOIN ztsj_ryjbxx_qywx b on a.FDYJZGH = b.XGH
+         where a.FDYJZGH in(SELECT xgh FROM ztsj_ryjbxx_qywx)
+    </select>
+</mapper>

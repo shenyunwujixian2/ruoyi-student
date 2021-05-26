@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ruoyi.record.mapper.TeacherMapper">
+
+    <resultMap id="TeacherModelResult" type="com.ruoyi.record.domain.TeacherModel">
+        <result property="person_name"    column="person_name"    />
+        <result property="area_name"    column="area_name"    />
+        <result property="guard_group_name"    column="guard_group_name"    />
+        <result property="pass_time"    column="pass_time"    />
+        <result property="str_inorout"    column="str_inorout"    />
+
+    </resultMap>
+    <select id="getList"  parameterType="com.ruoyi.record.domain.TeacherModel"  resultMap="TeacherModelResult">
+        select person_name, area_name,guard_group_name,pass_time,str_inorout FROM sys_record_each_info WHERE
+        <choose>
+            <when test="startshowTime==null and endshowTime==null">
+                 TO_DAYS(pass_time)=TO_DAYS(NOW()) AND person_name IN(SELECT FDY FROM bd_xgxt_xgxt_bjfdyxx_qywx)
+            </when>
+            <when test="startshowTime!=null and endshowTime!=null and person_name==null">
+                pass_time between #{startshowTime} AND #{endshowTime} AND person_name IN(SELECT FDY FROM bd_xgxt_xgxt_bjfdyxx_qywx)
+            </when>
+            <otherwise>
+                 pass_time between #{startshowTime} AND #{endshowTime} AND person_name =#{person_name} AND person_name IN(SELECT FDY FROM bd_xgxt_xgxt_bjfdyxx_qywx)
+            </otherwise>
+        </choose>
+
+
+    </select>
+
+
+</mapper>

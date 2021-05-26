@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.record.mapper.EachDayMapper">
+
+    <sql id="Base_Column_List">
+        id,
+        `name`,
+        sort,
+        user_id as userId,
+        create_by as createBy,
+        create_time as createTime,
+        update_by as updateBy,
+        update_time as updateTime,
+        remark
+	</sql>
+
+    <sql id="Base_Table_And_List_Where">
+        from sys_record_each_day where 1=1
+        <if test="param.id != null and param.id != ''">
+            and id = #{param.id}
+        </if>
+        <if test="param.name != null and param.name != ''">
+            and `name` like CONCAT('%',#{param.name},'%')
+        </if>
+        <if test="param.userId != null and param.userId != ''">
+            and `user_id` = #{param.userId}
+        </if>
+        <if test="param.showTime != null and param.showTime != ''">
+            and `show_time` = #{param.showTime}
+        </if>
+        <if test="param.outStatus != null and param.outStatus != ''">
+            and `out_status` = #{param.outStatus}
+        </if>
+        <if test="param.inStatus != null and param.inStatus != ''">
+            and `in_status` = #{param.inStatus}
+        </if>
+        <if test="param.lateStatus != null and param.lateStatus != ''">
+            and `late_status` = #{param.lateStatus}
+        </if>
+        <if test="param.checkStatus != null and param.checkStatus != ''">
+            and `check_status` = #{param.checkStatus}
+        </if>
+        <if test="param.lastInorout != null and param.lastInorout != ''">
+            and `last_inorout` = #{param.lastInorout}
+        </if>
+        <if test="param.teachId != null and param.teachId != ''">
+            and `teach_id` = #{param.teachId}
+        </if>
+        <if test="param.teachName != null and param.teachName != ''">
+            and `teach_name` like CONCAT('%',#{param.teachName},'%')
+        </if>
+        <if test="param.xm != null and param.xm != ''">
+            and `xm` like CONCAT('%',#{param.xm},'%')
+        </if>
+
+        <if test="param.xh != null and param.xh != ''">
+            and `xh` = #{param.xh}
+        </if>
+        <if test="param.lxfs != null and param.lxfs != ''">
+            and `lxfs` = #{param.lxfs}
+        </if>
+
+        <if test="param.dwdm != null and param.dwdm != ''">
+            and `dwdm` = #{param.dwdm}
+        </if>
+        <if test="param.dwmc != null and param.dwmc != ''">
+            and `dwmc` like CONCAT('%',#{param.dwmc},'%')
+        </if>
+        <if test="param.xkmldm != null and param.xkmldm != ''">
+            and `xkmldm` = #{param.xkmldm}
+        </if>
+        <if test="param.zydm != null and param.zydm != ''">
+            and `zydm` = #{param.zydm}
+        </if>
+        <if test="param.zymc != null and param.zymc != ''">
+            and `zymc` like CONCAT('%',#{param.zymc},'%')
+        </if>
+        <if test="param.bjdm != null and param.bjdm != ''">
+            and `bjdm` = #{param.bjdm}
+        </if>
+        <if test="param.bjjc != null and param.bjjc != ''">
+            and `bjjc` like CONCAT('%',#{param.bjjc},'%')
+        </if>
+        <if test="param.xsdqztdm != null and param.xsdqztdm != ''">
+            and `xsdqztdm` = #{param.xsdqztdm}
+        </if>
+        <if test="param.dateStart != null and param.dateStart != '' and param.dateEnd != null and param.dateEnd != ''">
+            and show_time between  CONCAT(#{param.dateStart},' 00:00:00') and CONCAT(#{param.dateEnd},' 23:59:59')
+        </if>
+        <if test="param.startshowTime != null and param.startshowTime != '' and param.endshowTime != null and param.endshowTime != ''">
+            and show_time between CONCAT(#{param.startshowTime},' 00:00:00') and CONCAT(#{param.endshowTime},' 23:59:59')
+        </if>
+        <if test="param.lateStart != null and param.lateStart != '' and param.lateEnd != null and param.lateEnd != ''">
+            and in_time between CONCAT(#{param.lateStart},'') and CONCAT(#{param.lateEnd},'')
+        </if>
+
+   <!--     <if test="param.lateBackList != null and param.lateBackList != '1'">
+            and last_inorout = 1 and last_inorout_time between  CONCAT(#{param.showTime},' 22:30:00') and CONCAT(#{param.showTime},' 23:59:59')
+        </if>
+        <if test="param.lateBackList != null and param.lateBackList == '2'">
+            and last_inorout = 1 and last_inorout_time between  CONCAT(#{param.showTime},' 23:00:00') and CONCAT(#{param.showTime},' 23:59:59')
+        </if>
+
+        <if test="param.nowNotBackList != null and param.nowNotBackList != '1'">
+             and last_inorout = 2 and last_inorout_time between  CONCAT(#{param.showTime},' 00:00:00') and CONCAT(#{param.showTime},' 22:00:00')
+        </if>
+        <if test="param.nowNotBackList != null and param.nowNotBackList != '2'">
+             and last_inorout = 2 and last_inorout_time between  CONCAT(#{param.showTime},' 00:00:00') and CONCAT(#{param.showTime},' 22:30:00')
+        </if>-->
+
+        <if test="param.lateBackList != null and param.lateBackList != ''">
+           and late_status in(0,1,2) and (
+            (last_inorout = 1 and last_inorout_time between CONCAT(#{param.showTime},' 22:30:00') and
+            CONCAT(#{param.showTimeEnd},' 06:00:00'))
+            or (last_str_inorout is NULL and show_time = #{param.showTime})
+            )
+        </if>
+        <if test="param.lateBackListZm != null and param.lateBackListZm != ''">
+            and late_status in(0,1,2) and (
+            (last_inorout = 1 and last_inorout_time between CONCAT(#{param.showTime},' 23:00:00') and
+            CONCAT(#{param.showTimeEnd},' 06:00:00'))
+            or (last_str_inorout is NULL and show_time = #{param.showTime})
+            )
+        </if>
+
+
+        <if test="param.nowNotBackList != null and param.nowNotBackList != ''">
+            and late_status in(0,1,2) and (
+            (last_inorout = 2 and last_inorout_time between  CONCAT(#{param.showTime},' 06:00:00') and
+            CONCAT(#{param.showTime},' 22:30:00'))
+            or (last_str_inorout is NULL and show_time = #{param.showTime})
+            )
+        </if>
+        <if test="param.nowNotBackListZm != null and param.nowNotBackListZm != ''">
+            and late_status in(0,1,2) and (
+            (last_inorout = 2 and last_inorout_time between CONCAT(#{param.showTime},' 06:00:00') and
+            CONCAT(#{param.showTime},' 23:00:00'))
+            or (last_str_inorout is NULL and show_time = #{param.showTime})
+            )
+        </if>
+        <if test="param.searchPassIsNull != null and param.searchPassIsNull != ''">
+            and out_time is NULL and in_time is null
+        </if>
+
+        <if test="param.searchPassTimeBig24 != null and param.searchPassTimeBig24 != ''">
+            and last_inorout_time &lt;= #{param.searchPassTimeBig24}
+        </if>
+
+        <if test='param.searchPassIsNotNull != null and param.searchPassIsNotNull == "lastInoroutIsNotNull"'>
+            and last_inorout is not NULL and last_inorout_time is not NULL
+        </if>
+
+        <if test="param.teachIdArr != null and param.teachIdArr != ''">
+            and teach_id in
+            <foreach item="teach_id" collection="param.teachIdArr" open="(" separator="," close=")">
+                #{teach_id}
+            </foreach>
+        </if>
+
+        <if test="param.groupByField != null and param.groupByField != ''">
+            group by ${param.groupByField}
+        </if>
+    </sql>
+
+    <!-- 根据条件获取记录 -->
+    <select id="getList"  parameterType="java.util.HashMap"  resultType="com.ruoyi.record.domain.EachDayModel">
+        select *
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc
+    </select>
+    <!-- 根据条件获取记录 -->
+    <select id="getMapList"  parameterType="java.util.HashMap"  resultType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc
+    </select>
+    <!-- 根据条件获取单条记录 -->
+    <select id="getModelInfo" parameterType="java.util.HashMap" resultType="com.ruoyi.record.domain.EachDayModel">
+        select *
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY show_time desc, sort asc,id desc limit 1
+    </select>
+    <!-- 根据条件获取单条记录 -->
+    <select id="getMapInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc limit 1
+    </select>
+
+    <!-- 根据条件获取记录 -->
+    <select id="getCount"  parameterType="java.util.HashMap"  resultType="java.util.HashMap">
+        select * ,count(*) as allNum
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc
+    </select>
+
+
+</mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.late.mapper.SysRecordPushMessageHistoryMapper">
+    
+    <resultMap type="SysRecordPushMessageHistory" id="SysRecordPushMessageHistoryResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="title"    column="title"    />
+        <result property="content"    column="content"    />
+        <result property="toUser"    column="to_user"    />
+        <result property="sendStatus"    column="send_status"    />
+        <result property="sendTime"    column="send_time"    />
+        <result property="sendResult"    column="send_result"    />
+        <result property="type"    column="type"    />
+        <result property="phone"    column="phone"    />
+        <result property="xh"    column="xh"    />
+        <result property="showTime"    column="show_time"    />
+        <result property="url"    column="url"    />
+    </resultMap>
+
+    <sql id="selectSysRecordPushMessageHistoryVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, title, content, to_user, send_status, send_time, send_result, type, phone, xh ,show_time, url from sys_record_push_message_history
+    </sql>
+
+    <select id="selectSysRecordPushMessageHistoryList" parameterType="SysRecordPushMessageHistory" resultMap="SysRecordPushMessageHistoryResult">
+        <include refid="selectSysRecordPushMessageHistoryVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="toUser != null  and toUser != ''"> and to_user = #{toUser}</if>
+            <if test="sendStatus != null "> and send_status = #{sendStatus}</if>
+            <if test="sendTime != null "> and send_time = #{sendTime}</if>
+            <if test="sendResult != null  and sendResult != ''"> and send_result = #{sendResult}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="xh != null  and xh != ''"> and xh = #{xh}</if>
+            <if test="showTime != null  and showTime != ''"> and show_time = #{showTime}</if>
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysRecordPushMessageHistoryById" parameterType="Long" resultMap="SysRecordPushMessageHistoryResult">
+        <include refid="selectSysRecordPushMessageHistoryVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysRecordPushMessageHistory" parameterType="SysRecordPushMessageHistory" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_record_push_message_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="title != null">title,</if>
+            <if test="content != null">content,</if>
+            <if test="toUser != null">to_user,</if>
+            <if test="sendStatus != null">send_status,</if>
+            <if test="sendTime != null">send_time,</if>
+            <if test="sendResult != null">send_result,</if>
+            <if test="type != null">type,</if>
+            <if test="phone != null">phone,</if>
+            <if test="xh != null">xh,</if>
+            <if test="showTime != null">show_time,</if>
+            <if test="url != null">url,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="title != null">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="toUser != null">#{toUser},</if>
+            <if test="sendStatus != null">#{sendStatus},</if>
+            <if test="sendTime != null">#{sendTime},</if>
+            <if test="sendResult != null">#{sendResult},</if>
+            <if test="type != null">#{type},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="showTime != null">#{showTime},</if>
+            <if test="url != null">#{url},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysRecordPushMessageHistory" parameterType="SysRecordPushMessageHistory">
+        update sys_record_push_message_history
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="toUser != null">to_user = #{toUser},</if>
+            <if test="sendStatus != null">send_status = #{sendStatus},</if>
+            <if test="sendTime != null">send_time = #{sendTime},</if>
+            <if test="sendResult != null">send_result = #{sendResult},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="xh != null">xh = #{xh},</if>
+            <if test="showTime != null">show_time = #{showTime},</if>
+            <if test="url != null">url = #{url},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysRecordPushMessageHistoryById" parameterType="Long">
+        delete from sys_record_push_message_history where id = #{id}
+    </delete>
+
+    <delete id="deleteSysRecordPushMessageHistoryByIds" parameterType="String">
+        delete from sys_record_push_message_history where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

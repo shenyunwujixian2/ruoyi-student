@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.late.mapper.SysRecordEachLatenoMapper">
+    
+    <resultMap type="SysRecordEachLateno" id="SysRecordEachLatenoResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="showTime"    column="show_time"    />
+        <result property="lateStatus"    column="late_status"    />
+        <result property="dayId"    column="day_id"    />
+        <result property="outTime"    column="out_time"    />
+        <result property="outRecordId"    column="out_record_id"    />
+        <result property="inTime"    column="in_time"    />
+        <result property="inRecordId"    column="in_record_id"    />
+        <result property="teachStatus"    column="teach_status"    />
+        <result property="teachTime"    column="teach_time"    />
+        <result property="teachId"    column="teach_id"    />
+        <result property="bmmc"    column="bmmc"    />
+        <result property="bmdm"    column="bmdm"    />
+        <result property="xh"    column="xh"    />
+        <result property="xm"    column="xm"    />
+        <result property="lxfs"    column="lxfs"    />
+        <result property="dwmc"    column="dwmc"    />
+        <result property="dwdm"    column="dwdm"    />
+        <result property="xkmldm"    column="xkmldm"    />
+        <result property="zymc"    column="zymc"    />
+        <result property="zydm"    column="zydm"    />
+        <result property="bjjc"    column="bjjc"    />
+        <result property="bjdm"    column="bjdm"    />
+        <result property="xsdqztdm"    column="xsdqztdm"    />
+        <result property="teachName"    column="teach_name"    />
+        <result property="lastInorout"    column="last_inorout"    />
+        <result property="lastStrInorout"    column="last_str_inorout"    />
+        <result property="lastInoroutTime"    column="last_inorout_time"    />
+        <result property="sslh"    column="sslh"    />
+        <result property="dy"    column="dy"    />
+        <result property="shh"    column="shh"    />
+        <result property="cwh"    column="cwh"    />
+        <result property="status"    column="status"    />
+        <result property="lateId"    column="late_id"    />
+    </resultMap>
+
+    <sql id="selectSysRecordEachLatenoVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, show_time, late_status, day_id, out_time, out_record_id, in_time, in_record_id, teach_status, teach_time, teach_id, bmmc, bmdm, xh, xm, lxfs, dwmc, dwdm, xkmldm, zymc, zydm, bjjc, bjdm, xsdqztdm, teach_name, last_inorout, last_str_inorout, last_inorout_time, sslh, dy, shh, cwh, status, late_id from sys_record_each_lateno
+    </sql>
+
+    <select id="selectSysRecordEachLatenoList" parameterType="SysRecordEachLateno" resultMap="SysRecordEachLatenoResult">
+        <include refid="selectSysRecordEachLatenoVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="showTime != null "> and show_time = #{showTime}</if>
+            <if test="lateStatus != null "> and late_status = #{lateStatus}</if>
+            <if test="dayId != null "> and day_id = #{dayId}</if>
+            <if test="outTime != null "> and out_time = #{outTime}</if>
+            <if test="outRecordId != null "> and out_record_id = #{outRecordId}</if>
+            <if test="inTime != null "> and in_time = #{inTime}</if>
+            <if test="inRecordId != null "> and in_record_id = #{inRecordId}</if>
+            <if test="teachStatus != null "> and teach_status = #{teachStatus}</if>
+            <if test="teachTime != null "> and teach_time = #{teachTime}</if>
+            <if test="teachId != null  and teachId != ''"> and teach_id = #{teachId}</if>
+            <if test="bmmc != null  and bmmc != ''"> and bmmc = #{bmmc}</if>
+            <if test="bmdm != null  and bmdm != ''"> and bmdm = #{bmdm}</if>
+            <if test="xh != null  and xh != ''"> and xh = #{xh}</if>
+            <if test="xm != null  and xm != ''"> and xm = #{xm}</if>
+            <if test="lxfs != null  and lxfs != ''"> and lxfs = #{lxfs}</if>
+            <if test="dwmc != null  and dwmc != ''"> and dwmc = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and dwdm = #{dwdm}</if>
+            <if test="xkmldm != null  and xkmldm != ''"> and xkmldm = #{xkmldm}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and zydm = #{zydm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and bjjc = #{bjjc}</if>
+            <if test="bjdm != null  and bjdm != ''"> and bjdm = #{bjdm}</if>
+            <if test="xsdqztdm != null  and xsdqztdm != ''"> and xsdqztdm = #{xsdqztdm}</if>
+            <if test="teachName != null  and teachName != ''"> and teach_name like concat('%', #{teachName}, '%')</if>
+            <if test="lastInorout != null  and lastInorout != ''"> and last_inorout = #{lastInorout}</if>
+            <if test="lastStrInorout != null  and lastStrInorout != ''"> and last_str_inorout = #{lastStrInorout}</if>
+            <if test="lastInoroutTime != null "> and last_inorout_time = #{lastInoroutTime}</if>
+            <if test="sslh != null  and sslh != ''"> and sslh = #{sslh}</if>
+            <if test="dy != null  and dy != ''"> and dy = #{dy}</if>
+            <if test="shh != null  and shh != ''"> and shh = #{shh}</if>
+            <if test="cwh != null  and cwh != ''"> and cwh = #{cwh}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="lateId != null "> and late_id = #{lateId}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysRecordEachLatenoById" parameterType="Long" resultMap="SysRecordEachLatenoResult">
+        <include refid="selectSysRecordEachLatenoVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectSysRecordEachLatenoByLateId" parameterType="Long" resultMap="SysRecordEachLatenoResult">
+        <include refid="selectSysRecordEachLatenoVo"/>
+        where late_id = #{lateId}
+    </select>
+        
+    <insert id="insertSysRecordEachLateno" parameterType="SysRecordEachLateno" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_record_each_lateno
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="showTime != null">show_time,</if>
+            <if test="lateStatus != null">late_status,</if>
+            <if test="dayId != null">day_id,</if>
+            <if test="outTime != null">out_time,</if>
+            <if test="outRecordId != null">out_record_id,</if>
+            <if test="inTime != null">in_time,</if>
+            <if test="inRecordId != null">in_record_id,</if>
+            <if test="teachStatus != null">teach_status,</if>
+            <if test="teachTime != null">teach_time,</if>
+            <if test="teachId != null">teach_id,</if>
+            <if test="bmmc != null">bmmc,</if>
+            <if test="bmdm != null">bmdm,</if>
+            <if test="xh != null">xh,</if>
+            <if test="xm != null">xm,</if>
+            <if test="lxfs != null">lxfs,</if>
+            <if test="dwmc != null">dwmc,</if>
+            <if test="dwdm != null">dwdm,</if>
+            <if test="xkmldm != null">xkmldm,</if>
+            <if test="zymc != null">zymc,</if>
+            <if test="zydm != null">zydm,</if>
+            <if test="bjjc != null">bjjc,</if>
+            <if test="bjdm != null">bjdm,</if>
+            <if test="xsdqztdm != null">xsdqztdm,</if>
+            <if test="teachName != null">teach_name,</if>
+            <if test="lastInorout != null">last_inorout,</if>
+            <if test="lastStrInorout != null">last_str_inorout,</if>
+            <if test="lastInoroutTime != null">last_inorout_time,</if>
+            <if test="sslh != null">sslh,</if>
+            <if test="dy != null">dy,</if>
+            <if test="shh != null">shh,</if>
+            <if test="cwh != null">cwh,</if>
+            <if test="status != null">status,</if>
+            <if test="lateId != null">late_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="showTime != null">#{showTime},</if>
+            <if test="lateStatus != null">#{lateStatus},</if>
+            <if test="dayId != null">#{dayId},</if>
+            <if test="outTime != null">#{outTime},</if>
+            <if test="outRecordId != null">#{outRecordId},</if>
+            <if test="inTime != null">#{inTime},</if>
+            <if test="inRecordId != null">#{inRecordId},</if>
+            <if test="teachStatus != null">#{teachStatus},</if>
+            <if test="teachTime != null">#{teachTime},</if>
+            <if test="teachId != null">#{teachId},</if>
+            <if test="bmmc != null">#{bmmc},</if>
+            <if test="bmdm != null">#{bmdm},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="lxfs != null">#{lxfs},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="xkmldm != null">#{xkmldm},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="zydm != null">#{zydm},</if>
+            <if test="bjjc != null">#{bjjc},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="xsdqztdm != null">#{xsdqztdm},</if>
+            <if test="teachName != null">#{teachName},</if>
+            <if test="lastInorout != null">#{lastInorout},</if>
+            <if test="lastStrInorout != null">#{lastStrInorout},</if>
+            <if test="lastInoroutTime != null">#{lastInoroutTime},</if>
+            <if test="sslh != null">#{sslh},</if>
+            <if test="dy != null">#{dy},</if>
+            <if test="shh != null">#{shh},</if>
+            <if test="cwh != null">#{cwh},</if>
+            <if test="status != null">#{status},</if>
+            <if test="lateId != null">#{lateId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysRecordEachLateno" parameterType="SysRecordEachLateno">
+        update sys_record_each_lateno
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="showTime != null">show_time = #{showTime},</if>
+            <if test="lateStatus != null">late_status = #{lateStatus},</if>
+            <if test="dayId != null">day_id = #{dayId},</if>
+            <if test="outTime != null">out_time = #{outTime},</if>
+            <if test="outRecordId != null">out_record_id = #{outRecordId},</if>
+            <if test="inTime != null">in_time = #{inTime},</if>
+            <if test="inRecordId != null">in_record_id = #{inRecordId},</if>
+            <if test="teachStatus != null">teach_status = #{teachStatus},</if>
+            <if test="teachTime != null">teach_time = #{teachTime},</if>
+            <if test="teachId != null">teach_id = #{teachId},</if>
+            <if test="bmmc != null">bmmc = #{bmmc},</if>
+            <if test="bmdm != null">bmdm = #{bmdm},</if>
+            <if test="xh != null">xh = #{xh},</if>
+            <if test="xm != null">xm = #{xm},</if>
+            <if test="lxfs != null">lxfs = #{lxfs},</if>
+            <if test="dwmc != null">dwmc = #{dwmc},</if>
+            <if test="dwdm != null">dwdm = #{dwdm},</if>
+            <if test="xkmldm != null">xkmldm = #{xkmldm},</if>
+            <if test="zymc != null">zymc = #{zymc},</if>
+            <if test="zydm != null">zydm = #{zydm},</if>
+            <if test="bjjc != null">bjjc = #{bjjc},</if>
+            <if test="bjdm != null">bjdm = #{bjdm},</if>
+            <if test="xsdqztdm != null">xsdqztdm = #{xsdqztdm},</if>
+            <if test="teachName != null">teach_name = #{teachName},</if>
+            <if test="lastInorout != null">last_inorout = #{lastInorout},</if>
+            <if test="lastStrInorout != null">last_str_inorout = #{lastStrInorout},</if>
+            <if test="lastInoroutTime != null">last_inorout_time = #{lastInoroutTime},</if>
+            <if test="sslh != null">sslh = #{sslh},</if>
+            <if test="dy != null">dy = #{dy},</if>
+            <if test="shh != null">shh = #{shh},</if>
+            <if test="cwh != null">cwh = #{cwh},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="lateId != null">late_id = #{lateId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysRecordEachLatenoById" parameterType="Long">
+        delete from sys_record_each_lateno where id = #{id}
+    </delete>
+
+    <delete id="deleteSysRecordEachLatenoByIds" parameterType="String">
+        delete from sys_record_each_lateno where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

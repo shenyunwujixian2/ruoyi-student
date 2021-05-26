@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dbbase.mapper.BdXgxtXgxtBjfdyxxQywxMapper">
+    
+    <resultMap type="BdXgxtXgxtBjfdyxxQywx" id="BdXgxtXgxtBjfdyxxQywxResult">
+        <result property="bjxxbh"    column="BJXXBH"    />
+        <result property="bjdm"    column="BJDM"    />
+        <result property="bjmc"    column="BJMC"    />
+        <result property="fdy"    column="FDY"    />
+        <result property="fdyjzgh"    column="FDYJZGH"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+        <result property="local"    column="local"    />
+        <result property="lxdh"    column="lxdh"    />
+        <result property="dqnj"    column="dqnj"    />
+        <result property="dwmc"    column="dwmc"    />
+    </resultMap>
+
+    <sql id="selectBdXgxtXgxtBjfdyxxQywxVo">
+        select BJXXBH, BJDM, BJMC, FDY, FDYJZGH, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP,lxdh,`local`,dqnj,dwmc from bd_xgxt_xgxt_bjfdyxx_qywx
+    </sql>
+
+    <select id="selectBdXgxtXgxtBjfdyxxQywxList" parameterType="BdXgxtXgxtBjfdyxxQywx" resultMap="BdXgxtXgxtBjfdyxxQywxResult">
+        <include refid="selectBdXgxtXgxtBjfdyxxQywxVo"/>
+        <where>  
+            <if test="bjxxbh != null  and bjxxbh != ''"> and BJXXBH = #{bjxxbh}</if>
+            <if test="bjdm != null  and bjdm != ''"> and BJDM = #{bjdm}</if>
+            <if test="bjmc != null  and bjmc != ''"> and BJMC like concat('%', #{bjmc}, '%')</if>
+            <if test="fdy != null  and fdy != ''"> and FDY = #{fdy}</if>
+            <if test="fdyjzgh != null  and fdyjzgh != ''"> and FDYJZGH = #{fdyjzgh}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+            <if test="lxdh != null "> and lxdh = #{lxdh}</if>
+            <if test="local != null "> and `local` = #{local}</if>
+            <if test="dqnj != null "> and `dqnj` = #{dqnj}</if>
+            <if test="dwmc != null "> and `dwmc` = #{dwmc}</if>
+        </where>
+        <if test="searchValue != null and searchValue=='groupByJZGH'"> group by fdyjzgh </if>
+    </select>
+    
+    <select id="selectBdXgxtXgxtBjfdyxxQywxById" parameterType="String" resultMap="BdXgxtXgxtBjfdyxxQywxResult">
+        <include refid="selectBdXgxtXgxtBjfdyxxQywxVo"/>
+        where BJXXBH = #{bjxxbh}
+    </select>
+        
+    <insert id="insertBdXgxtXgxtBjfdyxxQywx" parameterType="BdXgxtXgxtBjfdyxxQywx">
+        insert into bd_xgxt_xgxt_bjfdyxx_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bjxxbh != null">BJXXBH,</if>
+            <if test="bjdm != null">BJDM,</if>
+            <if test="bjmc != null">BJMC,</if>
+            <if test="fdy != null">FDY,</if>
+            <if test="fdyjzgh != null">FDYJZGH,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+            <if test="lxdh != null">lxdh,</if>
+            <if test="local != null">local,</if>
+            <if test="dqnj != null">dqnj,</if>
+            <if test="dwmc != null">dwmc,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bjxxbh != null">#{bjxxbh},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="bjmc != null">#{bjmc},</if>
+            <if test="fdy != null">#{fdy},</if>
+            <if test="fdyjzgh != null">#{fdyjzgh},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+            <if test="lxdh != null">#{lxdh},</if>
+            <if test="local != null">#{local},</if>
+            <if test="dqnj != null">#{dqnj},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBdXgxtXgxtBjfdyxxQywx" parameterType="BdXgxtXgxtBjfdyxxQywx">
+        update bd_xgxt_xgxt_bjfdyxx_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bjdm != null">BJDM = #{bjdm},</if>
+            <if test="bjmc != null">BJMC = #{bjmc},</if>
+            <if test="fdy != null">FDY = #{fdy},</if>
+            <if test="fdyjzgh != null">FDYJZGH = #{fdyjzgh},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+            <if test="lxdh != null">lxdh = #{lxdh},</if>
+            <if test="local != null">local = #{local},</if>
+            <if test="dqnj != null">dqnj = #{dqnj},</if>
+            <if test="dwmc != null">dwmc = #{dwmc},</if>
+        </trim>
+        where BJXXBH = #{bjxxbh}
+    </update>
+
+    <delete id="deleteBdXgxtXgxtBjfdyxxQywxById" parameterType="String">
+        delete from bd_xgxt_xgxt_bjfdyxx_qywx where BJXXBH = #{bjxxbh}
+    </delete>
+    <delete id="deleteBdXgxtXgxtBjfdyxxQywxByLocal" parameterType="String">
+        delete from bd_xgxt_xgxt_bjfdyxx_qywx where `local` = #{local}
+    </delete>
+
+    <delete id="deleteBdXgxtXgxtBjfdyxxQywxByIds" parameterType="String">
+        delete from bd_xgxt_xgxt_bjfdyxx_qywx where BJXXBH in 
+        <foreach item="bjxxbh" collection="array" open="(" separator="," close=")">
+            #{bjxxbh}
+        </foreach>
+    </delete>
+</mapper>

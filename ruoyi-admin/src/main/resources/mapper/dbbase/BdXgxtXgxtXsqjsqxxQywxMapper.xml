@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dbbase.mapper.BdXgxtXgxtXsqjsqxxQywxMapper">
+    
+    <resultMap type="BdXgxtXgxtXsqjsqxxQywx" id="BdXgxtXgxtXsqjsqxxQywxResult">
+        <result property="jssj"    column="JSSJ"    />
+        <result property="xh"    column="XH"    />
+        <result property="qjjc"    column="QJJC"    />
+        <result property="xjsj"    column="XJSJ"    />
+        <result property="spzt"    column="SPZT"    />
+        <result property="jzlxdh"    column="JZLXDH"    />
+        <result property="sshm"    column="SSHM"    />
+        <result property="xjzt"    column="XJZT"    />
+        <result property="xsqjsqxxbh"    column="XSQJSQXXBH"    />
+        <result property="fj"    column="FJ"    />
+        <result property="nr"    column="NR"    />
+        <result property="xjjd"    column="XJJD"    />
+        <result property="xjwd"    column="XJWD"    />
+        <result property="jzxm"    column="JZXM"    />
+        <result property="xjdz"    column="XJDZ"    />
+        <result property="qjlx"    column="QJLX"    />
+        <result property="sslmc"    column="SSLMC"    />
+        <result property="cjsj"    column="CJSJ"    />
+        <result property="qssj"    column="QSSJ"    />
+        <result property="nf"    column="NF"    />
+        <result property="qjkc"    column="QJKC"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectBdXgxtXgxtXsqjsqxxQywxVo">
+        select JSSJ, XH, QJJC, XJSJ, SPZT, JZLXDH, SSHM, XJZT, XSQJSQXXBH, FJ, NR, XJJD, XJWD, JZXM, XJDZ, QJLX, SSLMC, CJSJ, QSSJ, NF, QJKC, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from bd_xgxt_xgxt_xsqjsqxx_qywx
+    </sql>
+
+    <select id="selectBdXgxtXgxtXsqjsqxxQywxList" parameterType="BdXgxtXgxtXsqjsqxxQywx" resultMap="BdXgxtXgxtXsqjsqxxQywxResult">
+        <include refid="selectBdXgxtXgxtXsqjsqxxQywxVo"/>
+        <where>  
+            <if test="jssj != null  and jssj != ''"> and JSSJ = #{jssj}</if>
+            <if test="xh != null  and xh != ''"> and XH = #{xh}</if>
+            <if test="qjjc != null  and qjjc != ''"> and QJJC = #{qjjc}</if>
+            <if test="xjsj != null  and xjsj != ''"> and XJSJ = #{xjsj}</if>
+            <if test="spzt != null  and spzt != ''"> and SPZT = #{spzt}</if>
+            <if test="jzlxdh != null  and jzlxdh != ''"> and JZLXDH = #{jzlxdh}</if>
+            <if test="sshm != null  and sshm != ''"> and SSHM = #{sshm}</if>
+            <if test="xjzt != null  and xjzt != ''"> and XJZT = #{xjzt}</if>
+            <if test="xsqjsqxxbh != null  and xsqjsqxxbh != ''"> and XSQJSQXXBH = #{xsqjsqxxbh}</if>
+            <if test="fj != null  and fj != ''"> and FJ = #{fj}</if>
+            <if test="nr != null  and nr != ''"> and NR = #{nr}</if>
+            <if test="xjjd != null "> and XJJD = #{xjjd}</if>
+            <if test="xjwd != null "> and XJWD = #{xjwd}</if>
+            <if test="jzxm != null  and jzxm != ''"> and JZXM like concat('%', #{jzxm}, '%')</if>
+            <if test="xjdz != null  and xjdz != ''"> and XJDZ = #{xjdz}</if>
+            <if test="qjlx != null  and qjlx != ''"> and QJLX = #{qjlx}</if>
+            <if test="sslmc != null  and sslmc != ''"> and SSLMC = #{sslmc}</if>
+            <if test="cjsj != null  and cjsj != ''"> and CJSJ = #{cjsj}</if>
+            <if test="qssj != null  and qssj != ''"> and QSSJ = #{qssj}</if>
+            <if test="nf != null  and nf != ''"> and NF = #{nf}</if>
+            <if test="qjkc != null  and qjkc != ''"> and QJKC = #{qjkc}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+    
+    <select id="selectBdXgxtXgxtXsqjsqxxQywxById" parameterType="String" resultMap="BdXgxtXgxtXsqjsqxxQywxResult">
+        <include refid="selectBdXgxtXgxtXsqjsqxxQywxVo"/>
+        where JSSJ = #{jssj}
+    </select>
+        
+    <insert id="insertBdXgxtXgxtXsqjsqxxQywx" parameterType="BdXgxtXgxtXsqjsqxxQywx">
+        insert into bd_xgxt_xgxt_xsqjsqxx_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="jssj != null">JSSJ,</if>
+            <if test="xh != null">XH,</if>
+            <if test="qjjc != null">QJJC,</if>
+            <if test="xjsj != null">XJSJ,</if>
+            <if test="spzt != null">SPZT,</if>
+            <if test="jzlxdh != null">JZLXDH,</if>
+            <if test="sshm != null">SSHM,</if>
+            <if test="xjzt != null">XJZT,</if>
+            <if test="xsqjsqxxbh != null">XSQJSQXXBH,</if>
+            <if test="fj != null">FJ,</if>
+            <if test="nr != null">NR,</if>
+            <if test="xjjd != null">XJJD,</if>
+            <if test="xjwd != null">XJWD,</if>
+            <if test="jzxm != null">JZXM,</if>
+            <if test="xjdz != null">XJDZ,</if>
+            <if test="qjlx != null">QJLX,</if>
+            <if test="sslmc != null">SSLMC,</if>
+            <if test="cjsj != null">CJSJ,</if>
+            <if test="qssj != null">QSSJ,</if>
+            <if test="nf != null">NF,</if>
+            <if test="qjkc != null">QJKC,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="jssj != null">#{jssj},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="qjjc != null">#{qjjc},</if>
+            <if test="xjsj != null">#{xjsj},</if>
+            <if test="spzt != null">#{spzt},</if>
+            <if test="jzlxdh != null">#{jzlxdh},</if>
+            <if test="sshm != null">#{sshm},</if>
+            <if test="xjzt != null">#{xjzt},</if>
+            <if test="xsqjsqxxbh != null">#{xsqjsqxxbh},</if>
+            <if test="fj != null">#{fj},</if>
+            <if test="nr != null">#{nr},</if>
+            <if test="xjjd != null">#{xjjd},</if>
+            <if test="xjwd != null">#{xjwd},</if>
+            <if test="jzxm != null">#{jzxm},</if>
+            <if test="xjdz != null">#{xjdz},</if>
+            <if test="qjlx != null">#{qjlx},</if>
+            <if test="sslmc != null">#{sslmc},</if>
+            <if test="cjsj != null">#{cjsj},</if>
+            <if test="qssj != null">#{qssj},</if>
+            <if test="nf != null">#{nf},</if>
+            <if test="qjkc != null">#{qjkc},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBdXgxtXgxtXsqjsqxxQywx" parameterType="BdXgxtXgxtXsqjsqxxQywx">
+        update bd_xgxt_xgxt_xsqjsqxx_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xh != null">XH = #{xh},</if>
+            <if test="qjjc != null">QJJC = #{qjjc},</if>
+            <if test="xjsj != null">XJSJ = #{xjsj},</if>
+            <if test="spzt != null">SPZT = #{spzt},</if>
+            <if test="jzlxdh != null">JZLXDH = #{jzlxdh},</if>
+            <if test="sshm != null">SSHM = #{sshm},</if>
+            <if test="xjzt != null">XJZT = #{xjzt},</if>
+            <if test="xsqjsqxxbh != null">XSQJSQXXBH = #{xsqjsqxxbh},</if>
+            <if test="fj != null">FJ = #{fj},</if>
+            <if test="nr != null">NR = #{nr},</if>
+            <if test="xjjd != null">XJJD = #{xjjd},</if>
+            <if test="xjwd != null">XJWD = #{xjwd},</if>
+            <if test="jzxm != null">JZXM = #{jzxm},</if>
+            <if test="xjdz != null">XJDZ = #{xjdz},</if>
+            <if test="qjlx != null">QJLX = #{qjlx},</if>
+            <if test="sslmc != null">SSLMC = #{sslmc},</if>
+            <if test="cjsj != null">CJSJ = #{cjsj},</if>
+            <if test="qssj != null">QSSJ = #{qssj},</if>
+            <if test="nf != null">NF = #{nf},</if>
+            <if test="qjkc != null">QJKC = #{qjkc},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where JSSJ = #{jssj}
+    </update>
+
+    <delete id="deleteBdXgxtXgxtXsqjsqxxQywxById" parameterType="String">
+        delete from bd_xgxt_xgxt_xsqjsqxx_qywx where JSSJ = #{jssj}
+    </delete>
+
+    <delete id="deleteBdXgxtXgxtXsqjsqxxQywxByIds" parameterType="String">
+        delete from bd_xgxt_xgxt_xsqjsqxx_qywx where JSSJ in 
+        <foreach item="jssj" collection="array" open="(" separator="," close=")">
+            #{jssj}
+        </foreach>
+    </delete>
+</mapper>

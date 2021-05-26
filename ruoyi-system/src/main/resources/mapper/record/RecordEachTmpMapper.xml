@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.record.mapper.RecordEachTmpMapper">
+    
+    <resultMap type="RecordEachTmp" id="RecordEachTmpResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="recordId"    column="record_id"    />
+        <result property="inorout"    column="inorout"    />
+        <result property="strInorout"    column="str_inorout"    />
+        <result property="areaName"    column="area_name"    />
+        <result property="areaCode"    column="area_code"    />
+        <result property="personType"    column="person_type"    />
+        <result property="strPersonType"    column="str_person_type"    />
+        <result property="guardGroupCode"    column="guard_group_code"    />
+        <result property="guardGroupName"    column="guard_group_name"    />
+        <result property="personCode"    column="person_code"    />
+        <result property="personName"    column="person_name"    />
+        <result property="passTime"    column="pass_time"    />
+        <result property="passTimeStr"    column="pass_time_str"    />
+        <result property="info"    column="info"    />
+        <result property="checkStatus"    column="check_status"    />
+        <result property="checkTime"    column="check_time"    />
+        <result property="departmentCode"    column="department_code"    />
+        <result property="departmentName"    column="department_name"    />
+    </resultMap>
+
+    <sql id="selectRecordEachTmpVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, record_id, inorout, str_inorout, area_name, area_code, person_type, str_person_type, guard_group_code, guard_group_name, person_code, person_name, pass_time, pass_time_str, info, check_status, check_time, department_code, department_name from sys_record_each_tmp
+    </sql>
+
+    <select id="selectRecordEachTmpList" parameterType="RecordEachTmp" resultMap="RecordEachTmpResult">
+        <include refid="selectRecordEachTmpVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="recordId != null  and recordId != ''"> and record_id = #{recordId}</if>
+            <if test="inorout != null "> and inorout = #{inorout}</if>
+            <if test="strInorout != null  and strInorout != ''"> and str_inorout = #{strInorout}</if>
+            <if test="areaName != null  and areaName != ''"> and area_name like concat('%', #{areaName}, '%')</if>
+            <if test="areaCode != null  and areaCode != ''"> and area_code = #{areaCode}</if>
+            <if test="personType != null  and personType != ''"> and person_type = #{personType}</if>
+            <if test="strPersonType != null  and strPersonType != ''"> and str_person_type = #{strPersonType}</if>
+            <if test="guardGroupCode != null  and guardGroupCode != ''"> and guard_group_code = #{guardGroupCode}</if>
+            <if test="guardGroupName != null  and guardGroupName != ''"> and guard_group_name like concat('%', #{guardGroupName}, '%')</if>
+            <if test="personCode != null  and personCode != ''"> and person_code = #{personCode}</if>
+            <if test="personName != null  and personName != ''"> and person_name like concat('%', #{personName}, '%')</if>
+            <if test="passTime != null "> and pass_time = #{passTime}</if>
+            <if test="passTimeStr != null  and passTimeStr != ''"> and pass_time_str = #{passTimeStr}</if>
+            <if test="info != null  and info != ''"> and info = #{info}</if>
+            <if test="checkStatus != null "> and check_status = #{checkStatus}</if>
+            <if test="checkTime != null "> and check_time = #{checkTime}</if>
+            <if test="departmentCode != null  and departmentCode != ''"> and department_code = #{departmentCode}</if>
+            <if test="departmentName != null  and departmentName != ''"> and department_name like concat('%', #{departmentName}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectRecordEachTmpById" parameterType="Long" resultMap="RecordEachTmpResult">
+        <include refid="selectRecordEachTmpVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertRecordEachTmp" parameterType="RecordEachTmp" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_record_each_tmp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="recordId != null">record_id,</if>
+            <if test="inorout != null">inorout,</if>
+            <if test="strInorout != null">str_inorout,</if>
+            <if test="areaName != null">area_name,</if>
+            <if test="areaCode != null">area_code,</if>
+            <if test="personType != null">person_type,</if>
+            <if test="strPersonType != null and strPersonType != ''">str_person_type,</if>
+            <if test="guardGroupCode != null">guard_group_code,</if>
+            <if test="guardGroupName != null">guard_group_name,</if>
+            <if test="personCode != null">person_code,</if>
+            <if test="personName != null">person_name,</if>
+            <if test="passTime != null">pass_time,</if>
+            <if test="passTimeStr != null">pass_time_str,</if>
+            <if test="info != null">info,</if>
+            <if test="checkStatus != null">check_status,</if>
+            <if test="checkTime != null">check_time,</if>
+            <if test="departmentCode != null">department_code,</if>
+            <if test="departmentName != null">department_name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="recordId != null">#{recordId},</if>
+            <if test="inorout != null">#{inorout},</if>
+            <if test="strInorout != null">#{strInorout},</if>
+            <if test="areaName != null">#{areaName},</if>
+            <if test="areaCode != null">#{areaCode},</if>
+            <if test="personType != null">#{personType},</if>
+            <if test="strPersonType != null and strPersonType != ''">#{strPersonType},</if>
+            <if test="guardGroupCode != null">#{guardGroupCode},</if>
+            <if test="guardGroupName != null">#{guardGroupName},</if>
+            <if test="personCode != null">#{personCode},</if>
+            <if test="personName != null">#{personName},</if>
+            <if test="passTime != null">#{passTime},</if>
+            <if test="passTimeStr != null">#{passTimeStr},</if>
+            <if test="info != null">#{info},</if>
+            <if test="checkStatus != null">#{checkStatus},</if>
+            <if test="checkTime != null">#{checkTime},</if>
+            <if test="departmentCode != null">#{departmentCode},</if>
+            <if test="departmentName != null">#{departmentName},</if>
+         </trim>
+    </insert>
+
+    <update id="updateRecordEachTmp" parameterType="RecordEachTmp">
+        update sys_record_each_tmp
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="recordId != null">record_id = #{recordId},</if>
+            <if test="inorout != null">inorout = #{inorout},</if>
+            <if test="strInorout != null">str_inorout = #{strInorout},</if>
+            <if test="areaName != null">area_name = #{areaName},</if>
+            <if test="areaCode != null">area_code = #{areaCode},</if>
+            <if test="personType != null">person_type = #{personType},</if>
+            <if test="strPersonType != null and strPersonType != ''">str_person_type = #{strPersonType},</if>
+            <if test="guardGroupCode != null">guard_group_code = #{guardGroupCode},</if>
+            <if test="guardGroupName != null">guard_group_name = #{guardGroupName},</if>
+            <if test="personCode != null">person_code = #{personCode},</if>
+            <if test="personName != null">person_name = #{personName},</if>
+            <if test="passTime != null">pass_time = #{passTime},</if>
+            <if test="passTimeStr != null">pass_time_str = #{passTimeStr},</if>
+            <if test="info != null">info = #{info},</if>
+            <if test="checkStatus != null">check_status = #{checkStatus},</if>
+            <if test="checkTime != null">check_time = #{checkTime},</if>
+            <if test="departmentCode != null">department_code = #{departmentCode},</if>
+            <if test="departmentName != null">department_name = #{departmentName},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteRecordEachTmpById" parameterType="Long">
+        delete from sys_record_each_tmp where id = #{id}
+    </delete>
+
+    <delete id="deleteRecordEachTmpByIds" parameterType="String">
+        delete from sys_record_each_tmp where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

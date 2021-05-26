@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.offline.mapper.MjxtMjxtMjryjcjlxxQywxMapper">
+    
+    <resultMap type="MjxtMjxtMjryjcjlxxQywx" id="MjxtMjxtMjryjcjlxxQywxResult">
+        <result property="zzzj"    column="ZZZJ"    />
+        <result property="yhdm"    column="YHDM"    />
+        <result property="xm"    column="XM"    />
+        <result property="sbdm"    column="SBDM"    />
+        <result property="rq"    column="RQ"    />
+        <result property="fssj"    column="FSSJ"    />
+        <result property="jgsj"    column="JGSJ"    />
+        <result property="sbmc"    column="SBMC"    />
+        <result property="qybh"    column="QYBH"    />
+        <result property="ymc"    column="YMC"    />
+        <result property="mzmc"    column="MZMC"    />
+        <result property="mzbh"    column="MZBH"    />
+        <result property="xjbh"    column="XJBH"    />
+        <result property="kkmc"    column="KKMC"    />
+        <result property="zpsl"    column="ZPSL"    />
+        <result property="sblx"    column="SBLX"    />
+        <result property="jcbz"    column="JCBZ"    />
+        <result property="crrylx"    column="CRRYLX"    />
+        <result property="zpbh"    column="ZPBH"    />
+        <result property="gxrq"    column="GXRQ"    />
+        <result property="cjxxsm"    column="CJXXSM"    />
+        <result property="bb"    column="BB"    />
+        <result property="jlsm"    column="JLSM"    />
+        <result property="ksm"    column="KSM"    />
+        <result property="ipdz"    column="IPDZ"    />
+        <result property="kbh"    column="KBH"    />
+        <result property="ztbz"    column="ZTBZ"    />
+        <result property="xsd"    column="XSD"    />
+        <result property="jllx"    column="JLLX"    />
+        <result property="jlsxlx"    column="JLSXLX"    />
+        <result property="xb"    column="XB"    />
+        <result property="hwjl"    column="HWJL"    />
+        <result property="rlzl"    column="RLZL"    />
+        <result property="hyms"    column="HYMS"    />
+        <result property="sfzjh"    column="SFZJH"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectMjxtMjxtMjryjcjlxxQywxVo">
+        select ZZZJ, YHDM, XM, SBDM, RQ, FSSJ, JGSJ, SBMC, QYBH, YMC, MZMC, MZBH, XJBH, KKMC, ZPSL, SBLX, JCBZ, CRRYLX, ZPBH, GXRQ, CJXXSM, BB, JLSM, KSM, IPDZ, KBH, ZTBZ, XSD, JLLX, JLSXLX, XB, HWJL, RLZL, HYMS, SFZJH, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from mjxt_mjxt_mjryjcjlxx_qywx
+    </sql>
+
+    <select id="selectMjxtMjxtMjryjcjlxxQywxList" parameterType="MjxtMjxtMjryjcjlxxQywx" resultMap="MjxtMjxtMjryjcjlxxQywxResult">
+        <include refid="selectMjxtMjxtMjryjcjlxxQywxVo"/>
+        <where>  
+            <if test="zzzj != null "> and ZZZJ = #{zzzj}</if>
+            <if test="yhdm != null  and yhdm != ''"> and YHDM = #{yhdm}</if>
+            <if test="xm != null  and xm != ''"> and XM = #{xm}</if>
+            <if test="sbdm != null  and sbdm != ''"> and SBDM = #{sbdm}</if>
+            <if test="rq != null  and rq != ''"> and RQ = #{rq}</if>
+            <if test="fssj != null  and fssj != ''"> and FSSJ = #{fssj}</if>
+            <if test="jgsj != null  and jgsj != ''"> and JGSJ = #{jgsj}</if>
+            <if test="sbmc != null  and sbmc != ''"> and SBMC = #{sbmc}</if>
+            <if test="qybh != null  and qybh != ''"> and QYBH = #{qybh}</if>
+            <if test="ymc != null  and ymc != ''"> and YMC = #{ymc}</if>
+            <if test="mzmc != null  and mzmc != ''"> and MZMC = #{mzmc}</if>
+            <if test="mzbh != null  and mzbh != ''"> and MZBH = #{mzbh}</if>
+            <if test="xjbh != null  and xjbh != ''"> and XJBH = #{xjbh}</if>
+            <if test="kkmc != null  and kkmc != ''"> and KKMC = #{kkmc}</if>
+            <if test="zpsl != null  and zpsl != ''"> and ZPSL = #{zpsl}</if>
+            <if test="sblx != null  and sblx != ''"> and SBLX = #{sblx}</if>
+            <if test="jcbz != null  and jcbz != ''"> and JCBZ = #{jcbz}</if>
+            <if test="crrylx != null  and crrylx != ''"> and CRRYLX = #{crrylx}</if>
+            <if test="zpbh != null  and zpbh != ''"> and ZPBH = #{zpbh}</if>
+            <if test="gxrq != null  and gxrq != ''"> and GXRQ = #{gxrq}</if>
+            <if test="cjxxsm != null  and cjxxsm != ''"> and CJXXSM = #{cjxxsm}</if>
+            <if test="bb != null  and bb != ''"> and BB = #{bb}</if>
+            <if test="jlsm != null  and jlsm != ''"> and JLSM = #{jlsm}</if>
+            <if test="ksm != null  and ksm != ''"> and KSM = #{ksm}</if>
+            <if test="ipdz != null  and ipdz != ''"> and IPDZ = #{ipdz}</if>
+            <if test="kbh != null  and kbh != ''"> and KBH = #{kbh}</if>
+            <if test="ztbz != null  and ztbz != ''"> and ZTBZ = #{ztbz}</if>
+            <if test="xsd != null  and xsd != ''"> and XSD = #{xsd}</if>
+            <if test="jllx != null  and jllx != ''"> and JLLX = #{jllx}</if>
+            <if test="jlsxlx != null  and jlsxlx != ''"> and JLSXLX = #{jlsxlx}</if>
+            <if test="xb != null  and xb != ''"> and XB = #{xb}</if>
+            <if test="hwjl != null  and hwjl != ''"> and HWJL = #{hwjl}</if>
+            <if test="rlzl != null  and rlzl != ''"> and RLZL = #{rlzl}</if>
+            <if test="hyms != null  and hyms != ''"> and HYMS = #{hyms}</if>
+            <if test="sfzjh != null  and sfzjh != ''"> and SFZJH = #{sfzjh}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+    
+    <select id="selectMjxtMjxtMjryjcjlxxQywxById" parameterType="Integer" resultMap="MjxtMjxtMjryjcjlxxQywxResult">
+        <include refid="selectMjxtMjxtMjryjcjlxxQywxVo"/>
+        where ZZZJ = #{zzzj}
+    </select>
+        
+    <insert id="insertMjxtMjxtMjryjcjlxxQywx" parameterType="MjxtMjxtMjryjcjlxxQywx">
+        insert into mjxt_mjxt_mjryjcjlxx_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zzzj != null">ZZZJ,</if>
+            <if test="yhdm != null">YHDM,</if>
+            <if test="xm != null">XM,</if>
+            <if test="sbdm != null">SBDM,</if>
+            <if test="rq != null">RQ,</if>
+            <if test="fssj != null">FSSJ,</if>
+            <if test="jgsj != null">JGSJ,</if>
+            <if test="sbmc != null">SBMC,</if>
+            <if test="qybh != null">QYBH,</if>
+            <if test="ymc != null">YMC,</if>
+            <if test="mzmc != null">MZMC,</if>
+            <if test="mzbh != null">MZBH,</if>
+            <if test="xjbh != null">XJBH,</if>
+            <if test="kkmc != null">KKMC,</if>
+            <if test="zpsl != null">ZPSL,</if>
+            <if test="sblx != null">SBLX,</if>
+            <if test="jcbz != null">JCBZ,</if>
+            <if test="crrylx != null">CRRYLX,</if>
+            <if test="zpbh != null">ZPBH,</if>
+            <if test="gxrq != null">GXRQ,</if>
+            <if test="cjxxsm != null">CJXXSM,</if>
+            <if test="bb != null">BB,</if>
+            <if test="jlsm != null">JLSM,</if>
+            <if test="ksm != null">KSM,</if>
+            <if test="ipdz != null">IPDZ,</if>
+            <if test="kbh != null">KBH,</if>
+            <if test="ztbz != null">ZTBZ,</if>
+            <if test="xsd != null">XSD,</if>
+            <if test="jllx != null">JLLX,</if>
+            <if test="jlsxlx != null">JLSXLX,</if>
+            <if test="xb != null">XB,</if>
+            <if test="hwjl != null">HWJL,</if>
+            <if test="rlzl != null">RLZL,</if>
+            <if test="hyms != null">HYMS,</if>
+            <if test="sfzjh != null">SFZJH,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zzzj != null">#{zzzj},</if>
+            <if test="yhdm != null">#{yhdm},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="sbdm != null">#{sbdm},</if>
+            <if test="rq != null">#{rq},</if>
+            <if test="fssj != null">#{fssj},</if>
+            <if test="jgsj != null">#{jgsj},</if>
+            <if test="sbmc != null">#{sbmc},</if>
+            <if test="qybh != null">#{qybh},</if>
+            <if test="ymc != null">#{ymc},</if>
+            <if test="mzmc != null">#{mzmc},</if>
+            <if test="mzbh != null">#{mzbh},</if>
+            <if test="xjbh != null">#{xjbh},</if>
+            <if test="kkmc != null">#{kkmc},</if>
+            <if test="zpsl != null">#{zpsl},</if>
+            <if test="sblx != null">#{sblx},</if>
+            <if test="jcbz != null">#{jcbz},</if>
+            <if test="crrylx != null">#{crrylx},</if>
+            <if test="zpbh != null">#{zpbh},</if>
+            <if test="gxrq != null">#{gxrq},</if>
+            <if test="cjxxsm != null">#{cjxxsm},</if>
+            <if test="bb != null">#{bb},</if>
+            <if test="jlsm != null">#{jlsm},</if>
+            <if test="ksm != null">#{ksm},</if>
+            <if test="ipdz != null">#{ipdz},</if>
+            <if test="kbh != null">#{kbh},</if>
+            <if test="ztbz != null">#{ztbz},</if>
+            <if test="xsd != null">#{xsd},</if>
+            <if test="jllx != null">#{jllx},</if>
+            <if test="jlsxlx != null">#{jlsxlx},</if>
+            <if test="xb != null">#{xb},</if>
+            <if test="hwjl != null">#{hwjl},</if>
+            <if test="rlzl != null">#{rlzl},</if>
+            <if test="hyms != null">#{hyms},</if>
+            <if test="sfzjh != null">#{sfzjh},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMjxtMjxtMjryjcjlxxQywx" parameterType="MjxtMjxtMjryjcjlxxQywx">
+        update mjxt_mjxt_mjryjcjlxx_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="yhdm != null">YHDM = #{yhdm},</if>
+            <if test="xm != null">XM = #{xm},</if>
+            <if test="sbdm != null">SBDM = #{sbdm},</if>
+            <if test="rq != null">RQ = #{rq},</if>
+            <if test="fssj != null">FSSJ = #{fssj},</if>
+            <if test="jgsj != null">JGSJ = #{jgsj},</if>
+            <if test="sbmc != null">SBMC = #{sbmc},</if>
+            <if test="qybh != null">QYBH = #{qybh},</if>
+            <if test="ymc != null">YMC = #{ymc},</if>
+            <if test="mzmc != null">MZMC = #{mzmc},</if>
+            <if test="mzbh != null">MZBH = #{mzbh},</if>
+            <if test="xjbh != null">XJBH = #{xjbh},</if>
+            <if test="kkmc != null">KKMC = #{kkmc},</if>
+            <if test="zpsl != null">ZPSL = #{zpsl},</if>
+            <if test="sblx != null">SBLX = #{sblx},</if>
+            <if test="jcbz != null">JCBZ = #{jcbz},</if>
+            <if test="crrylx != null">CRRYLX = #{crrylx},</if>
+            <if test="zpbh != null">ZPBH = #{zpbh},</if>
+            <if test="gxrq != null">GXRQ = #{gxrq},</if>
+            <if test="cjxxsm != null">CJXXSM = #{cjxxsm},</if>
+            <if test="bb != null">BB = #{bb},</if>
+            <if test="jlsm != null">JLSM = #{jlsm},</if>
+            <if test="ksm != null">KSM = #{ksm},</if>
+            <if test="ipdz != null">IPDZ = #{ipdz},</if>
+            <if test="kbh != null">KBH = #{kbh},</if>
+            <if test="ztbz != null">ZTBZ = #{ztbz},</if>
+            <if test="xsd != null">XSD = #{xsd},</if>
+            <if test="jllx != null">JLLX = #{jllx},</if>
+            <if test="jlsxlx != null">JLSXLX = #{jlsxlx},</if>
+            <if test="xb != null">XB = #{xb},</if>
+            <if test="hwjl != null">HWJL = #{hwjl},</if>
+            <if test="rlzl != null">RLZL = #{rlzl},</if>
+            <if test="hyms != null">HYMS = #{hyms},</if>
+            <if test="sfzjh != null">SFZJH = #{sfzjh},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where ZZZJ = #{zzzj}
+    </update>
+
+    <delete id="deleteMjxtMjxtMjryjcjlxxQywxById" parameterType="Integer">
+        delete from mjxt_mjxt_mjryjcjlxx_qywx where ZZZJ = #{zzzj}
+    </delete>
+
+    <delete id="deleteMjxtMjxtMjryjcjlxxQywxByIds" parameterType="String">
+        delete from mjxt_mjxt_mjryjcjlxx_qywx where ZZZJ in 
+        <foreach item="zzzj" collection="array" open="(" separator="," close=")">
+            #{zzzj}
+        </foreach>
+    </delete>
+</mapper>

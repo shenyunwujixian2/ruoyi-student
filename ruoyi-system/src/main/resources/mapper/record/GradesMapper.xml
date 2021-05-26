@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.record.mapper.GradesMapper">
+
+    <sql id="Base_Column_List">
+        id,
+        `name`,
+        sort,
+        user_id as userId,
+        create_by as createBy,
+        create_time as createTime,
+        update_by as updateBy,
+        update_time as updateTime,
+        remark
+	</sql>
+    <!--<resultMap type="com.ruoyi.record.domain.GradesModel" id="GradesResult">
+        <id     property="id"      column="id"      />
+        <result property="name"    column="name"    />
+        <result property="sort"     column="sort"     />
+        <result property="userId"   column="user_id"   />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>-->
+
+
+    <sql id="Base_Table_And_List_Where">
+        from sys_record_grades where 1=1
+        <if test="param.id != null and param.id != ''">
+            and id = #{param.id}
+        </if>
+        <if test="param.name != null and param.name != ''">
+            and `name` like CONCAT('%',#{param.name},'%')
+        </if>
+        <if test="param.userId != null and param.userId != ''">
+            and `user_id` = #{param.userId}
+        </if>
+        <if test="param.dateStart != null and param.dateStart != '' and param.dateEnd != null and param.dateEnd != ''">
+            and create_time between CONCAT(#{param.dateStart},' 00:00:00') and CONCAT(#{param.dateEnd},' 23:59:59')
+        </if>
+
+    </sql>
+
+    <!-- 根据条件获取记录 -->
+    <select id="getList"  parameterType="java.util.HashMap"  resultType="com.ruoyi.record.domain.GradesModel">
+        select *
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc
+    </select>
+    <!-- 根据条件获取记录 -->
+    <select id="getMapList"  parameterType="java.util.HashMap"  resultType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc
+    </select>
+    <!-- 根据条件获取单条记录 -->
+    <select id="getModelInfo" parameterType="java.util.HashMap" resultType="com.ruoyi.record.domain.GradesModel">
+        select *
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc limit 1
+    </select>
+    <!-- 根据条件获取单条记录 -->
+    <select id="getMapInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_Table_And_List_Where"/>
+        ORDER BY sort asc,id desc limit 1
+    </select>
+
+
+</mapper>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dbbase.mapper.BdStudentInSchoolMapper">
+    
+    <resultMap type="BdStudentInSchool" id="BdStudentInSchoolResult">
+        <result property="xh"    column="xh"    />
+        <result property="xm"    column="xm"    />
+        <result property="xb"    column="xb"    />
+        <result property="xymc"    column="xymc"    />
+        <result property="zymc"    column="zymc"    />
+        <result property="bjmc"    column="bjmc"    />
+        <result property="dqnj"    column="dqnj"    />
+        <result property="teachName"    column="teach_name"    />
+        <result property="sslh"    column="sslh"    />
+        <result property="dy"    column="dy"    />
+        <result property="shh"    column="shh"    />
+        <result property="cwh"    column="cwh"    />
+        <result property="lxfs"    column="lxfs"    />
+    </resultMap>
+
+    <sql id="selectBdStudentInSchoolVo">
+        select xh, xm, xb, xymc, zymc, bjmc, dqnj, teach_name, sslh, dy, shh, cwh, lxfs from bd_student_in_school
+    </sql>
+
+    <select id="selectBdStudentInSchoolList" parameterType="BdStudentInSchool" resultMap="BdStudentInSchoolResult">
+        <include refid="selectBdStudentInSchoolVo"/>
+        <where>  
+            <if test="xh != null  and xh != ''"> and xh = #{xh}</if>
+            <if test="xm != null  and xm != ''"> and xm = #{xm}</if>
+            <if test="xb != null  and xb != ''"> and xb = #{xb}</if>
+            <if test="xymc != null  and xymc != ''"> and xymc = #{xymc}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="bjmc != null  and bjmc != ''"> and bjmc = #{bjmc}</if>
+            <if test="dqnj != null  and dqnj != ''"> and dqnj = #{dqnj}</if>
+            <if test="teachName != null  and teachName != ''"> and teach_name like concat('%', #{teachName}, '%')</if>
+            <if test="sslh != null  and sslh != ''"> and sslh = #{sslh}</if>
+            <if test="dy != null  and dy != ''"> and dy = #{dy}</if>
+            <if test="shh != null  and shh != ''"> and shh = #{shh}</if>
+            <if test="cwh != null  and cwh != ''"> and cwh = #{cwh}</if>
+            <if test="lxfs != null  and lxfs != ''"> and lxfs = #{lxfs}</if>
+        </where>
+    </select>
+    
+    <select id="selectBdStudentInSchoolById" parameterType="String" resultMap="BdStudentInSchoolResult">
+        <include refid="selectBdStudentInSchoolVo"/>
+        where xh = #{xh}
+    </select>
+        
+    <insert id="insertBdStudentInSchool" parameterType="BdStudentInSchool">
+        insert into bd_student_in_school
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xh != null">xh,</if>
+            <if test="xm != null">xm,</if>
+            <if test="xb != null">xb,</if>
+            <if test="xymc != null">xymc,</if>
+            <if test="zymc != null">zymc,</if>
+            <if test="bjmc != null">bjmc,</if>
+            <if test="dqnj != null">dqnj,</if>
+            <if test="teachName != null">teach_name,</if>
+            <if test="sslh != null">sslh,</if>
+            <if test="dy != null">dy,</if>
+            <if test="shh != null">shh,</if>
+            <if test="cwh != null">cwh,</if>
+            <if test="lxfs != null">lxfs,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xh != null">#{xh},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="xb != null">#{xb},</if>
+            <if test="xymc != null">#{xymc},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="bjmc != null">#{bjmc},</if>
+            <if test="dqnj != null">#{dqnj},</if>
+            <if test="teachName != null">#{teachName},</if>
+            <if test="sslh != null">#{sslh},</if>
+            <if test="dy != null">#{dy},</if>
+            <if test="shh != null">#{shh},</if>
+            <if test="cwh != null">#{cwh},</if>
+            <if test="lxfs != null">#{lxfs},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBdStudentInSchool" parameterType="BdStudentInSchool">
+        update bd_student_in_school
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xm != null">xm = #{xm},</if>
+            <if test="xb != null">xb = #{xb},</if>
+            <if test="xymc != null">xymc = #{xymc},</if>
+            <if test="zymc != null">zymc = #{zymc},</if>
+            <if test="bjmc != null">bjmc = #{bjmc},</if>
+            <if test="dqnj != null">dqnj = #{dqnj},</if>
+            <if test="teachName != null">teach_name = #{teachName},</if>
+            <if test="sslh != null">sslh = #{sslh},</if>
+            <if test="dy != null">dy = #{dy},</if>
+            <if test="shh != null">shh = #{shh},</if>
+            <if test="cwh != null">cwh = #{cwh},</if>
+            <if test="lxfs != null">lxfs = #{lxfs},</if>
+        </trim>
+        where xh = #{xh}
+    </update>
+
+    <delete id="deleteBdStudentInSchoolById" parameterType="String">
+        delete from bd_student_in_school where xh = #{xh}
+    </delete>
+
+    <delete id="deleteBdStudentInSchoolByIds" parameterType="String">
+        delete from bd_student_in_school where xh in 
+        <foreach item="xh" collection="array" open="(" separator="," close=")">
+            #{xh}
+        </foreach>
+    </delete>
+</mapper>

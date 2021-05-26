@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.late.mapper.UserLateMapper">
+
+    <resultMap type="UserLate" id="UserLateResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="showTime"    column="show_time"    />
+        <result property="lateStatus"    column="late_status"    />
+        <result property="dayId"    column="day_id"    />
+        <result property="outTime"    column="out_time"    />
+        <result property="outRecordId"    column="out_record_id"    />
+        <result property="inTime"    column="in_time"    />
+        <result property="inRecordId"    column="in_record_id"    />
+        <result property="teachStatus"    column="teach_status"    />
+        <result property="teachTime"    column="teach_time"    />
+        <result property="teachId"    column="teach_id"    />
+        <result property="bmmc"    column="bmmc"    />
+        <result property="bmdm"    column="bmdm"    />
+        <result property="xh"    column="xh"    />
+        <result property="xm"    column="xm"    />
+        <result property="lxfs"    column="lxfs"    />
+        <result property="dwmc"    column="dwmc"    />
+        <result property="dwdm"    column="dwdm"    />
+        <result property="xkmldm"    column="xkmldm"    />
+        <result property="zymc"    column="zymc"    />
+        <result property="zydm"    column="zydm"    />
+        <result property="bjjc"    column="bjjc"    />
+        <result property="bjdm"    column="bjdm"    />
+        <result property="xsdqztdm"    column="xsdqztdm"    />
+        <result property="teachName"    column="teach_name"    />
+        <result property="lastInorout"    column="last_inorout"    />
+        <result property="lastStrInorout"    column="last_str_inorout"    />
+        <result property="lastInoroutTime"    column="last_inorout_time"    />
+
+        <result property="sslh"    column="sslh"    />
+        <result property="dy"    column="dy"    />
+        <result property="shh"    column="shh"    />
+        <result property="cwh"    column="cwh"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectUserLateVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, show_time, late_status, day_id, out_time, out_record_id, in_time, in_record_id, teach_status, teach_time, teach_id, bmmc, bmdm, xh, xm, lxfs, dwmc, dwdm, xkmldm, zymc, zydm, bjjc, bjdm, xsdqztdm, teach_name, last_inorout, last_str_inorout, last_inorout_time,sslh,dy,shh,cwh,status from sys_record_each_late
+    </sql>
+
+    <select id="selectUserLateList" parameterType="UserLate" resultMap="UserLateResult">
+        <include refid="selectUserLateVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="showTime != null "> and show_time = #{showTime}</if>
+            <if test="lateStatus != null "> and late_status = #{lateStatus}</if>
+            <if test="dayId != null "> and day_id = #{dayId}</if>
+            <if test="outTime != null "> and out_time = #{outTime}</if>
+            <if test="outRecordId != null "> and out_record_id = #{outRecordId}</if>
+            <if test="inTime != null "> and in_time = #{inTime}</if>
+            <if test="inRecordId != null "> and in_record_id = #{inRecordId}</if>
+            <if test="teachStatus != null "> and teach_status = #{teachStatus}</if>
+            <if test="teachTime != null "> and teach_time = #{teachTime}</if>
+            <if test="teachId != null  and teachId != ''"> and teach_id = #{teachId}</if>
+            <if test="bmmc != null  and bmmc != ''"> and bmmc = #{bmmc}</if>
+            <if test="bmdm != null  and bmdm != ''"> and bmdm = #{bmdm}</if>
+            <if test="xh != null  and xh != ''"> and xh = #{xh}</if>
+            <if test="xm != null  and xm != ''"> and xm = #{xm}</if>
+            <if test="lxfs != null  and lxfs != ''"> and lxfs = #{lxfs}</if>
+            <if test="dwmc != null  and dwmc != ''"> and dwmc = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and dwdm = #{dwdm}</if>
+            <if test="xkmldm != null  and xkmldm != ''"> and xkmldm = #{xkmldm}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and zydm = #{zydm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and bjjc = #{bjjc}</if>
+            <if test="bjdm != null  and bjdm != ''"> and bjdm = #{bjdm}</if>
+
+            <if test="sslh != null  and sslh != ''"> and sslh = #{sslh}</if>
+            <if test="dy != null  and dy != ''"> and dy = #{dy}</if>
+            <if test="shh != null  and shh != ''"> and shh = #{shh}</if>
+            <if test="cwh != null  and cwh != ''"> and cwh = #{cwh}</if>
+            <if test="status != null"> and status = #{status}</if>
+
+            <if test="xsdqztdm != null  and xsdqztdm != ''"> and xsdqztdm = #{xsdqztdm}</if>
+            <if test="teachName != null  and teachName != ''"> and teach_name like concat('%', #{teachName}, '%')</if>
+            <if test="lastInorout != null  and lastInorout != ''"> and last_inorout = #{lastInorout}</if>
+            <if test="lastStrInorout != null  and lastStrInorout != ''"> and last_str_inorout = #{lastStrInorout}</if>
+            <if test="lastInoroutTime != null "> and last_inorout_time = #{lastInoroutTime}</if>
+            <if test='searchValue != null and searchValue == "haveTeachStatus"'> and teach_status !=-1 </if>
+            <if test='searchValue != null and searchValue == "teachStatusArr"'> and teach_status in (-1,0,2) </if>
+
+            <if test="startshowTime != null and startshowTime != '' and endshowTime != null and endshowTime != ''">
+                and show_time between CONCAT(#{startshowTime},' 00:00:00') and CONCAT(#{endshowTime},' 23:59:59')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserLateById" parameterType="Long" resultMap="UserLateResult">
+        <include refid="selectUserLateVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertUserLate" parameterType="UserLate" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_record_each_late
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="showTime != null">show_time,</if>
+            <if test="lateStatus != null">late_status,</if>
+            <if test="dayId != null">day_id,</if>
+            <if test="outTime != null">out_time,</if>
+            <if test="outRecordId != null">out_record_id,</if>
+            <if test="inTime != null">in_time,</if>
+            <if test="inRecordId != null">in_record_id,</if>
+            <if test="teachStatus != null">teach_status,</if>
+            <if test="teachTime != null">teach_time,</if>
+            <if test="teachId != null">teach_id,</if>
+            <if test="bmmc != null">bmmc,</if>
+            <if test="bmdm != null">bmdm,</if>
+            <if test="xh != null">xh,</if>
+            <if test="xm != null">xm,</if>
+            <if test="lxfs != null">lxfs,</if>
+            <if test="dwmc != null">dwmc,</if>
+            <if test="dwdm != null">dwdm,</if>
+            <if test="xkmldm != null">xkmldm,</if>
+            <if test="zymc != null">zymc,</if>
+            <if test="zydm != null">zydm,</if>
+            <if test="bjjc != null">bjjc,</if>
+            <if test="bjdm != null">bjdm,</if>
+            <if test="xsdqztdm != null">xsdqztdm,</if>
+            <if test="teachName != null">teach_name,</if>
+            <if test="lastInorout != null">last_inorout,</if>
+            <if test="lastStrInorout != null">last_str_inorout,</if>
+            <if test="lastInoroutTime != null">last_inorout_time,</if>
+            <if test="sslh != null">sslh,</if>
+            <if test="dy != null">dy,</if>
+            <if test="shh != null">shh,</if>
+            <if test="cwh != null">cwh,</if>
+            <if test="status != null">status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="showTime != null">#{showTime},</if>
+            <if test="lateStatus != null">#{lateStatus},</if>
+            <if test="dayId != null">#{dayId},</if>
+            <if test="outTime != null">#{outTime},</if>
+            <if test="outRecordId != null">#{outRecordId},</if>
+            <if test="inTime != null">#{inTime},</if>
+            <if test="inRecordId != null">#{inRecordId},</if>
+            <if test="teachStatus != null">#{teachStatus},</if>
+            <if test="teachTime != null">#{teachTime},</if>
+            <if test="teachId != null">#{teachId},</if>
+            <if test="bmmc != null">#{bmmc},</if>
+            <if test="bmdm != null">#{bmdm},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="lxfs != null">#{lxfs},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="xkmldm != null">#{xkmldm},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="zydm != null">#{zydm},</if>
+            <if test="bjjc != null">#{bjjc},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="xsdqztdm != null">#{xsdqztdm},</if>
+            <if test="teachName != null">#{teachName},</if>
+            <if test="lastInorout != null">#{lastInorout},</if>
+            <if test="lastStrInorout != null">#{lastStrInorout},</if>
+            <if test="lastInoroutTime != null">#{lastInoroutTime},</if>
+            <if test="sslh != null">#{sslh},</if>
+            <if test="dy != null">#{dy},</if>
+            <if test="shh != null">#{shh},</if>
+            <if test="cwh != null">#{cwh},</if>
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateUserLate" parameterType="UserLate">
+        update sys_record_each_late
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="showTime != null">show_time = #{showTime},</if>
+            <if test="lateStatus != null">late_status = #{lateStatus},</if>
+            <if test="dayId != null">day_id = #{dayId},</if>
+            <if test="outTime != null">out_time = #{outTime},</if>
+            <if test="outRecordId != null">out_record_id = #{outRecordId},</if>
+            <if test="inTime != null">in_time = #{inTime},</if>
+            <if test="inRecordId != null">in_record_id = #{inRecordId},</if>
+            <if test="teachStatus != null">teach_status = #{teachStatus},</if>
+            <if test="teachTime != null">teach_time = #{teachTime},</if>
+            <if test="teachId != null">teach_id = #{teachId},</if>
+            <if test="bmmc != null">bmmc = #{bmmc},</if>
+            <if test="bmdm != null">bmdm = #{bmdm},</if>
+            <if test="xh != null">xh = #{xh},</if>
+            <if test="xm != null">xm = #{xm},</if>
+            <if test="lxfs != null">lxfs = #{lxfs},</if>
+            <if test="dwmc != null">dwmc = #{dwmc},</if>
+            <if test="dwdm != null">dwdm = #{dwdm},</if>
+            <if test="xkmldm != null">xkmldm = #{xkmldm},</if>
+            <if test="zymc != null">zymc = #{zymc},</if>
+            <if test="zydm != null">zydm = #{zydm},</if>
+            <if test="bjjc != null">bjjc = #{bjjc},</if>
+            <if test="bjdm != null">bjdm = #{bjdm},</if>
+            <if test="xsdqztdm != null">xsdqztdm = #{xsdqztdm},</if>
+            <if test="teachName != null">teach_name = #{teachName},</if>
+            <if test="lastInorout != null">last_inorout = #{lastInorout},</if>
+            <if test="lastStrInorout != null">last_str_inorout = #{lastStrInorout},</if>
+            <if test="lastInoroutTime != null">last_inorout_time = #{lastInoroutTime},</if>
+            <if test="sslh != null">sslh = #{sslh},</if>
+            <if test="dy != null">dy = #{dy},</if>
+            <if test="shh != null">shh = #{shh},</if>
+            <if test="cwh != null">cwh = #{cwh},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserLateById" parameterType="Long">
+        delete from sys_record_each_late where id = #{id}
+    </delete>
+
+    <delete id="deleteUserLateByIds" parameterType="String">
+        delete from sys_record_each_late where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!--删除已归的列表-->
+    <delete id="deleteUserLateNoBackList" parameterType="String">
+        delete from sys_record_each_late where show_time = #{show_time} and teach_status = -1 and last_inorout =2
+    </delete>
+
+    <!-- 获取统计信息 -->
+    <!--<select id="getCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">-->
+    <select id="getCountByHashMap" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select ifnull(count(`id`), 0) as num
+        <include refid="Base_Table_And_List_Where"/>
+
+    </select>
+    <!-- 获取满足被警告的列表 -->
+    <select id="getWaringList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT b.* from (
+        select *, ifnull(count(`id`), 0) as num
+        <include refid="Base_Table_And_List_Where"/>
+        ) as b where b.num>=1
+    </select>
+
+    <select id="getList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select *, ifnull(count(`id`), 0) as num
+        <include refid="Base_Table_And_List_Where"/>
+    </select>
+    <!--导出 学院列表 -->
+    <select id="getByGreadList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select dwmc,bjjc,xh,xm,late_status as lateStatus,teach_status as teachStatus, teach_name as teachName, show_time as showTime
+        <include refid="Base_Table_And_List_Where"/>
+        order by  dwmc
+    </select>
+
+    <!-- 查询条件 -->
+    <sql id="Base_Table_And_List_Where">
+        from sys_record_each_late where 1=1
+        <if test="param.id != null and param.id != ''">
+            and id = #{param.id}
+        </if>
+        <if test="param.userId != null and param.userId != ''">
+            and user_id = #{param.userId}
+        </if>
+        <if test="param.showTime != null and param.showTime != ''">
+            and show_time = #{param.showTime}
+        </if>
+        <if test="param.dateStart != null and param.dateStart != '' and param.dateEnd != null and param.dateEnd != ''">
+            and show_time between CONCAT(#{param.dateStart},' 00:00:00') and CONCAT(#{param.dateEnd},' 23:59:59')
+        </if>
+        <if test="param.startshowTime != null and param.startshowTime != '' and param.endshowTime != null and param.endshowTime != ''">
+            and show_time between CONCAT(#{param.startshowTime},' 00:00:00') and CONCAT(#{param.endshowTime},' 23:59:59')
+        </if>
+        <if test="param.lateStatus != null and param.lateStatus != ''">
+            and late_status = #{param.lateStatus}
+        </if>
+        <if test="param.lateStatusArr != null and param.lateStatusArr != ''">
+            and late_status in (${param.lateStatusArr})
+        </if>
+        <if test="param.teachStatus != null and param.teachStatus != ''">
+            and teach_status = #{param.teachStatus}
+        </if>
+        <if test="param.teachStatusArr != null and param.teachStatusArr != ''">
+            and teach_status in (${param.teachStatusArr})
+        </if>
+        <if test="param.teachId != null and param.teachId != ''">
+            and teach_id = #{param.teachId}
+        </if>
+        <if test="param.xh != null and param.xh != ''">
+            and xh = #{param.xh}
+        </if>
+        <if test="param.xm != null and param.xm != ''">
+            and `xm` like CONCAT('%',#{param.xm},'%')
+        </if>
+        <if test="param.bmmc != null and param.bmmc != ''">
+            and `bmmc` like CONCAT('%',#{param.bmmc},'%')
+        </if>
+        <if test="param.bmdm != null and param.bmdm != ''">
+            and bmdm = #{param.bmdm}
+        </if>
+        <if test="param.dwdm != null and param.dwdm != ''">
+            and dwdm = #{param.dwdm}
+        </if>
+        <if test="param.dwmc != null and param.dwmc != ''">
+            and dwmc = #{param.dwmc}
+        </if>
+        <if test="param.zydm != null and param.zydm != ''">
+            and zydm = #{param.zydm}
+        </if>
+        <if test="param.zymc != null and param.zymc != ''">
+            and zymc = #{param.zymc}
+        </if>
+        <if test="param.bjdm != null and param.bjdm != ''">
+            and bjdm = #{param.bjdm}
+        </if>
+        <if test="param.bjjc != null and param.bjjc != ''">
+            and `bjjc` like CONCAT('%',#{param.bjjc},'%')
+        </if>
+        <if test="param.shh != null and param.shh != ''">
+            and shh = #{param.shh}
+        </if>
+        <if test="param.sslh != null and param.sslh != ''">
+            and sslh = #{param.sslh}
+        </if>
+        <if test="param.status != null and param.status != ''">
+            and status = #{param.status}
+        </if>
+        <if test='param.searchValue != null and param.searchValue == "haveTeachStatus"'>
+            and teach_status !=-1
+        </if>
+        <if test="param.teachIdArr != null and param.teachIdArr != ''">
+          and teach_id in
+            <foreach item="teach_id" collection="param.teachIdArr" open="(" separator="," close=")">
+                #{teach_id}
+            </foreach>
+        </if>
+        <if test="param.groupByFieldName != null and param.groupByFieldName != ''">
+            group by ${param.groupByFieldName} ORDER BY id desc
+        </if>
+    </sql>
+
+</mapper>

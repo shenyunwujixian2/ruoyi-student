@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.offline.mapper.ZtsjZtsjJwzxsxxQywxMapper">
+    
+    <resultMap type="ZtsjZtsjJwzxsxxQywx" id="ZtsjZtsjJwzxsxxQywxResult">
+        <result property="xm"    column="XM"    />
+        <result property="csrq"    column="CSRQ"    />
+        <result property="lxfs"    column="LXFS"    />
+        <result property="dzyx"    column="DZYX"    />
+        <result property="yzbm"    column="YZBM"    />
+        <result property="scbz"    column="SCBZ"    />
+        <result property="cjrxm"    column="CJRXM"    />
+        <result property="sfzjh"    column="SFZJH"    />
+        <result property="xgsj"    column="XGSJ"    />
+        <result property="xb"    column="XB"    />
+        <result property="xbdm"    column="XBDM"    />
+        <result property="xxm"    column="XXM"    />
+        <result property="xx"    column="XX"    />
+        <result property="gjdqdm"    column="GJDQDM"    />
+        <result property="gb"    column="GB"    />
+        <result property="jg"    column="JG"    />
+        <result property="mz"    column="MZ"    />
+        <result property="mzdm"    column="MZDM"    />
+        <result property="xmpy"    column="XMPY"    />
+        <result property="hyzkdm"    column="HYZKDM"    />
+        <result property="csddm"    column="CSDDM"    />
+        <result property="sfzjyxq"    column="SFZJYXQ"    />
+        <result property="cym"    column="CYM"    />
+        <result property="jkzkdm"    column="JKZKDM"    />
+        <result property="hcdz"    column="HCDZ"    />
+        <result property="byzx"    column="BYZX"    />
+        <result property="sfzlxdm"    column="SFZLXDM"    />
+        <result property="zjlx"    column="ZJLX"    />
+        <result property="syd"    column="SYD"    />
+        <result property="lqh"    column="LQH"    />
+        <result property="txdz"    column="TXDZ"    />
+        <result property="zkzh"    column="ZKZH"    />
+        <result property="zzmm"    column="ZZMM"    />
+        <result property="zzmmdm"    column="ZZMMDM"    />
+        <result property="tc"    column="TC"    />
+        <result property="zsjd"    column="ZSJD"    />
+        <result property="kslbdm"    column="KSLBDM"    />
+        <result property="zp"    column="ZP"    />
+        <result property="rxcj"    column="RXCJ"    />
+        <result property="xh"    column="XH"    />
+        <result property="xgr"    column="XGR"    />
+        <result property="cjsj"    column="CJSJ"    />
+        <result property="pyccmc"    column="PYCCMC"    />
+        <result property="pyccdm"    column="PYCCDM"    />
+        <result property="dwmc"    column="DWMC"    />
+        <result property="dwdm"    column="DWDM"    />
+        <result property="xkmldm"    column="XKMLDM"    />
+        <result property="zymc"    column="ZYMC"    />
+        <result property="zydm"    column="ZYDM"    />
+        <result property="bjjc"    column="BJJC"    />
+        <result property="bjdm"    column="BJDM"    />
+        <result property="rxnf"    column="RXNF"    />
+        <result property="sfzx"    column="SFZX"    />
+        <result property="zcxdnx"    column="ZCXDNX"    />
+        <result property="pyfsdm"    column="PYFSDM"    />
+        <result property="xsdqztdm"    column="XSDQZTDM"    />
+        <result property="zyfxmc"    column="ZYFXMC"    />
+        <result property="ksh"    column="KSH"    />
+        <result property="byzy"    column="BYZY"    />
+        <result property="xslbdm"    column="XSLBDM"    />
+        <result property="xslb"    column="XSLB"    />
+        <result property="xjztdm"    column="XJZTDM"    />
+        <result property="xjztmc"    column="XJZTMC"    />
+        <result property="dqnj"    column="DQNJ"    />
+        <result property="rxrq"    column="RXRQ"    />
+        <result property="lxdh"    column="LXDH"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectZtsjZtsjJwzxsxxQywxVo">
+        select XM, CSRQ, LXFS, DZYX, YZBM, SCBZ, CJRXM, SFZJH, XGSJ, XB, XBDM, XXM, XX, GJDQDM, GB, JG, MZ, MZDM, XMPY, HYZKDM, CSDDM, SFZJYXQ, CYM, JKZKDM, HCDZ, BYZX, SFZLXDM, ZJLX, SYD, LQH, TXDZ, ZKZH, ZZMM, ZZMMDM, TC, ZSJD, KSLBDM, ZP, RXCJ, XH, XGR, CJSJ, PYCCMC, PYCCDM, DWMC, DWDM, XKMLDM, ZYMC, ZYDM, BJJC, BJDM, RXNF, SFZX, ZCXDNX, PYFSDM, XSDQZTDM, ZYFXMC, KSH, BYZY, XSLBDM, XSLB, XJZTDM, XJZTMC, DQNJ, RXRQ, LXDH, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from ztsj_ztsj_jwzxsxx_qywx
+    </sql>
+
+    <select id="selectZtsjZtsjJwzxsxxQywxList" parameterType="ZtsjZtsjJwzxsxxQywx" resultMap="ZtsjZtsjJwzxsxxQywxResult">
+        <include refid="selectZtsjZtsjJwzxsxxQywxVo"/>
+        <where>  
+            <if test="xm != null  and xm != ''"> and XM = #{xm}</if>
+            <if test="csrq != null  and csrq != ''"> and CSRQ = #{csrq}</if>
+            <if test="lxfs != null  and lxfs != ''"> and LXFS = #{lxfs}</if>
+            <if test="dzyx != null  and dzyx != ''"> and DZYX = #{dzyx}</if>
+            <if test="yzbm != null  and yzbm != ''"> and YZBM = #{yzbm}</if>
+            <if test="scbz != null  and scbz != ''"> and SCBZ = #{scbz}</if>
+            <if test="cjrxm != null  and cjrxm != ''"> and CJRXM = #{cjrxm}</if>
+            <if test="sfzjh != null  and sfzjh != ''"> and SFZJH = #{sfzjh}</if>
+            <if test="xgsj != null  and xgsj != ''"> and XGSJ = #{xgsj}</if>
+            <if test="xb != null  and xb != ''"> and XB = #{xb}</if>
+            <if test="xbdm != null  and xbdm != ''"> and XBDM = #{xbdm}</if>
+            <if test="xxm != null  and xxm != ''"> and XXM = #{xxm}</if>
+            <if test="xx != null  and xx != ''"> and XX = #{xx}</if>
+            <if test="gjdqdm != null  and gjdqdm != ''"> and GJDQDM = #{gjdqdm}</if>
+            <if test="gb != null  and gb != ''"> and GB = #{gb}</if>
+            <if test="jg != null  and jg != ''"> and JG = #{jg}</if>
+            <if test="mz != null  and mz != ''"> and MZ = #{mz}</if>
+            <if test="mzdm != null  and mzdm != ''"> and MZDM = #{mzdm}</if>
+            <if test="xmpy != null  and xmpy != ''"> and XMPY = #{xmpy}</if>
+            <if test="hyzkdm != null  and hyzkdm != ''"> and HYZKDM = #{hyzkdm}</if>
+            <if test="csddm != null  and csddm != ''"> and CSDDM = #{csddm}</if>
+            <if test="sfzjyxq != null  and sfzjyxq != ''"> and SFZJYXQ = #{sfzjyxq}</if>
+            <if test="cym != null  and cym != ''"> and CYM = #{cym}</if>
+            <if test="jkzkdm != null  and jkzkdm != ''"> and JKZKDM = #{jkzkdm}</if>
+            <if test="hcdz != null  and hcdz != ''"> and HCDZ = #{hcdz}</if>
+            <if test="byzx != null  and byzx != ''"> and BYZX = #{byzx}</if>
+            <if test="sfzlxdm != null  and sfzlxdm != ''"> and SFZLXDM = #{sfzlxdm}</if>
+            <if test="zjlx != null  and zjlx != ''"> and ZJLX = #{zjlx}</if>
+            <if test="syd != null  and syd != ''"> and SYD = #{syd}</if>
+            <if test="lqh != null  and lqh != ''"> and LQH = #{lqh}</if>
+            <if test="txdz != null  and txdz != ''"> and TXDZ = #{txdz}</if>
+            <if test="zkzh != null  and zkzh != ''"> and ZKZH = #{zkzh}</if>
+            <if test="zzmm != null  and zzmm != ''"> and ZZMM = #{zzmm}</if>
+            <if test="zzmmdm != null  and zzmmdm != ''"> and ZZMMDM = #{zzmmdm}</if>
+            <if test="tc != null  and tc != ''"> and TC = #{tc}</if>
+            <if test="zsjd != null  and zsjd != ''"> and ZSJD = #{zsjd}</if>
+            <if test="kslbdm != null  and kslbdm != ''"> and KSLBDM = #{kslbdm}</if>
+            <if test="zp != null  and zp != ''"> and ZP = #{zp}</if>
+            <if test="rxcj != null  and rxcj != ''"> and RXCJ = #{rxcj}</if>
+            <if test="xh != null  and xh != ''"> and XH = #{xh}</if>
+            <if test="xgr != null  and xgr != ''"> and XGR = #{xgr}</if>
+            <if test="cjsj != null  and cjsj != ''"> and CJSJ = #{cjsj}</if>
+            <if test="pyccmc != null  and pyccmc != ''"> and PYCCMC = #{pyccmc}</if>
+            <if test="pyccdm != null  and pyccdm != ''"> and PYCCDM = #{pyccdm}</if>
+            <if test="dwmc != null  and dwmc != ''"> and DWMC = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and DWDM = #{dwdm}</if>
+            <if test="xkmldm != null  and xkmldm != ''"> and XKMLDM = #{xkmldm}</if>
+            <if test="zymc != null  and zymc != ''"> and ZYMC = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and ZYDM = #{zydm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and BJJC = #{bjjc}</if>
+            <if test="bjdm != null  and bjdm != ''"> and BJDM = #{bjdm}</if>
+            <if test="rxnf != null  and rxnf != ''"> and RXNF = #{rxnf}</if>
+            <if test="sfzx != null  and sfzx != ''"> and SFZX = #{sfzx}</if>
+            <if test="zcxdnx != null  and zcxdnx != ''"> and ZCXDNX = #{zcxdnx}</if>
+            <if test="pyfsdm != null  and pyfsdm != ''"> and PYFSDM = #{pyfsdm}</if>
+            <if test="xsdqztdm != null  and xsdqztdm != ''"> and XSDQZTDM = #{xsdqztdm}</if>
+            <if test="zyfxmc != null  and zyfxmc != ''"> and ZYFXMC = #{zyfxmc}</if>
+            <if test="ksh != null  and ksh != ''"> and KSH = #{ksh}</if>
+            <if test="byzy != null  and byzy != ''"> and BYZY = #{byzy}</if>
+            <if test="xslbdm != null  and xslbdm != ''"> and XSLBDM = #{xslbdm}</if>
+            <if test="xslb != null  and xslb != ''"> and XSLB = #{xslb}</if>
+            <if test="xjztdm != null  and xjztdm != ''"> and XJZTDM = #{xjztdm}</if>
+            <if test="xjztmc != null  and xjztmc != ''"> and XJZTMC = #{xjztmc}</if>
+            <if test="dqnj != null  and dqnj != ''"> and DQNJ = #{dqnj}</if>
+            <if test="rxrq != null  and rxrq != ''"> and RXRQ = #{rxrq}</if>
+            <if test="lxdh != null  and lxdh != ''"> and LXDH = #{lxdh}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+    
+    <select id="selectZtsjZtsjJwzxsxxQywxById" parameterType="String" resultMap="ZtsjZtsjJwzxsxxQywxResult">
+        <include refid="selectZtsjZtsjJwzxsxxQywxVo"/>
+        where XM = #{xm}
+    </select>
+        
+    <insert id="insertZtsjZtsjJwzxsxxQywx" parameterType="ZtsjZtsjJwzxsxxQywx">
+        insert into ztsj_ztsj_jwzxsxx_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xm != null">XM,</if>
+            <if test="csrq != null">CSRQ,</if>
+            <if test="lxfs != null">LXFS,</if>
+            <if test="dzyx != null">DZYX,</if>
+            <if test="yzbm != null">YZBM,</if>
+            <if test="scbz != null">SCBZ,</if>
+            <if test="cjrxm != null">CJRXM,</if>
+            <if test="sfzjh != null">SFZJH,</if>
+            <if test="xgsj != null">XGSJ,</if>
+            <if test="xb != null">XB,</if>
+            <if test="xbdm != null">XBDM,</if>
+            <if test="xxm != null">XXM,</if>
+            <if test="xx != null">XX,</if>
+            <if test="gjdqdm != null">GJDQDM,</if>
+            <if test="gb != null">GB,</if>
+            <if test="jg != null">JG,</if>
+            <if test="mz != null">MZ,</if>
+            <if test="mzdm != null">MZDM,</if>
+            <if test="xmpy != null">XMPY,</if>
+            <if test="hyzkdm != null">HYZKDM,</if>
+            <if test="csddm != null">CSDDM,</if>
+            <if test="sfzjyxq != null">SFZJYXQ,</if>
+            <if test="cym != null">CYM,</if>
+            <if test="jkzkdm != null">JKZKDM,</if>
+            <if test="hcdz != null">HCDZ,</if>
+            <if test="byzx != null">BYZX,</if>
+            <if test="sfzlxdm != null">SFZLXDM,</if>
+            <if test="zjlx != null">ZJLX,</if>
+            <if test="syd != null">SYD,</if>
+            <if test="lqh != null">LQH,</if>
+            <if test="txdz != null">TXDZ,</if>
+            <if test="zkzh != null">ZKZH,</if>
+            <if test="zzmm != null">ZZMM,</if>
+            <if test="zzmmdm != null">ZZMMDM,</if>
+            <if test="tc != null">TC,</if>
+            <if test="zsjd != null">ZSJD,</if>
+            <if test="kslbdm != null">KSLBDM,</if>
+            <if test="zp != null">ZP,</if>
+            <if test="rxcj != null">RXCJ,</if>
+            <if test="xh != null">XH,</if>
+            <if test="xgr != null">XGR,</if>
+            <if test="cjsj != null">CJSJ,</if>
+            <if test="pyccmc != null">PYCCMC,</if>
+            <if test="pyccdm != null">PYCCDM,</if>
+            <if test="dwmc != null">DWMC,</if>
+            <if test="dwdm != null">DWDM,</if>
+            <if test="xkmldm != null">XKMLDM,</if>
+            <if test="zymc != null">ZYMC,</if>
+            <if test="zydm != null">ZYDM,</if>
+            <if test="bjjc != null">BJJC,</if>
+            <if test="bjdm != null">BJDM,</if>
+            <if test="rxnf != null">RXNF,</if>
+            <if test="sfzx != null">SFZX,</if>
+            <if test="zcxdnx != null">ZCXDNX,</if>
+            <if test="pyfsdm != null">PYFSDM,</if>
+            <if test="xsdqztdm != null">XSDQZTDM,</if>
+            <if test="zyfxmc != null">ZYFXMC,</if>
+            <if test="ksh != null">KSH,</if>
+            <if test="byzy != null">BYZY,</if>
+            <if test="xslbdm != null">XSLBDM,</if>
+            <if test="xslb != null">XSLB,</if>
+            <if test="xjztdm != null">XJZTDM,</if>
+            <if test="xjztmc != null">XJZTMC,</if>
+            <if test="dqnj != null">DQNJ,</if>
+            <if test="rxrq != null">RXRQ,</if>
+            <if test="lxdh != null">LXDH,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xm != null">#{xm},</if>
+            <if test="csrq != null">#{csrq},</if>
+            <if test="lxfs != null">#{lxfs},</if>
+            <if test="dzyx != null">#{dzyx},</if>
+            <if test="yzbm != null">#{yzbm},</if>
+            <if test="scbz != null">#{scbz},</if>
+            <if test="cjrxm != null">#{cjrxm},</if>
+            <if test="sfzjh != null">#{sfzjh},</if>
+            <if test="xgsj != null">#{xgsj},</if>
+            <if test="xb != null">#{xb},</if>
+            <if test="xbdm != null">#{xbdm},</if>
+            <if test="xxm != null">#{xxm},</if>
+            <if test="xx != null">#{xx},</if>
+            <if test="gjdqdm != null">#{gjdqdm},</if>
+            <if test="gb != null">#{gb},</if>
+            <if test="jg != null">#{jg},</if>
+            <if test="mz != null">#{mz},</if>
+            <if test="mzdm != null">#{mzdm},</if>
+            <if test="xmpy != null">#{xmpy},</if>
+            <if test="hyzkdm != null">#{hyzkdm},</if>
+            <if test="csddm != null">#{csddm},</if>
+            <if test="sfzjyxq != null">#{sfzjyxq},</if>
+            <if test="cym != null">#{cym},</if>
+            <if test="jkzkdm != null">#{jkzkdm},</if>
+            <if test="hcdz != null">#{hcdz},</if>
+            <if test="byzx != null">#{byzx},</if>
+            <if test="sfzlxdm != null">#{sfzlxdm},</if>
+            <if test="zjlx != null">#{zjlx},</if>
+            <if test="syd != null">#{syd},</if>
+            <if test="lqh != null">#{lqh},</if>
+            <if test="txdz != null">#{txdz},</if>
+            <if test="zkzh != null">#{zkzh},</if>
+            <if test="zzmm != null">#{zzmm},</if>
+            <if test="zzmmdm != null">#{zzmmdm},</if>
+            <if test="tc != null">#{tc},</if>
+            <if test="zsjd != null">#{zsjd},</if>
+            <if test="kslbdm != null">#{kslbdm},</if>
+            <if test="zp != null">#{zp},</if>
+            <if test="rxcj != null">#{rxcj},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="xgr != null">#{xgr},</if>
+            <if test="cjsj != null">#{cjsj},</if>
+            <if test="pyccmc != null">#{pyccmc},</if>
+            <if test="pyccdm != null">#{pyccdm},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="xkmldm != null">#{xkmldm},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="zydm != null">#{zydm},</if>
+            <if test="bjjc != null">#{bjjc},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="rxnf != null">#{rxnf},</if>
+            <if test="sfzx != null">#{sfzx},</if>
+            <if test="zcxdnx != null">#{zcxdnx},</if>
+            <if test="pyfsdm != null">#{pyfsdm},</if>
+            <if test="xsdqztdm != null">#{xsdqztdm},</if>
+            <if test="zyfxmc != null">#{zyfxmc},</if>
+            <if test="ksh != null">#{ksh},</if>
+            <if test="byzy != null">#{byzy},</if>
+            <if test="xslbdm != null">#{xslbdm},</if>
+            <if test="xslb != null">#{xslb},</if>
+            <if test="xjztdm != null">#{xjztdm},</if>
+            <if test="xjztmc != null">#{xjztmc},</if>
+            <if test="dqnj != null">#{dqnj},</if>
+            <if test="rxrq != null">#{rxrq},</if>
+            <if test="lxdh != null">#{lxdh},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateZtsjZtsjJwzxsxxQywx" parameterType="ZtsjZtsjJwzxsxxQywx">
+        update ztsj_ztsj_jwzxsxx_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="csrq != null">CSRQ = #{csrq},</if>
+            <if test="lxfs != null">LXFS = #{lxfs},</if>
+            <if test="dzyx != null">DZYX = #{dzyx},</if>
+            <if test="yzbm != null">YZBM = #{yzbm},</if>
+            <if test="scbz != null">SCBZ = #{scbz},</if>
+            <if test="cjrxm != null">CJRXM = #{cjrxm},</if>
+            <if test="sfzjh != null">SFZJH = #{sfzjh},</if>
+            <if test="xgsj != null">XGSJ = #{xgsj},</if>
+            <if test="xb != null">XB = #{xb},</if>
+            <if test="xbdm != null">XBDM = #{xbdm},</if>
+            <if test="xxm != null">XXM = #{xxm},</if>
+            <if test="xx != null">XX = #{xx},</if>
+            <if test="gjdqdm != null">GJDQDM = #{gjdqdm},</if>
+            <if test="gb != null">GB = #{gb},</if>
+            <if test="jg != null">JG = #{jg},</if>
+            <if test="mz != null">MZ = #{mz},</if>
+            <if test="mzdm != null">MZDM = #{mzdm},</if>
+            <if test="xmpy != null">XMPY = #{xmpy},</if>
+            <if test="hyzkdm != null">HYZKDM = #{hyzkdm},</if>
+            <if test="csddm != null">CSDDM = #{csddm},</if>
+            <if test="sfzjyxq != null">SFZJYXQ = #{sfzjyxq},</if>
+            <if test="cym != null">CYM = #{cym},</if>
+            <if test="jkzkdm != null">JKZKDM = #{jkzkdm},</if>
+            <if test="hcdz != null">HCDZ = #{hcdz},</if>
+            <if test="byzx != null">BYZX = #{byzx},</if>
+            <if test="sfzlxdm != null">SFZLXDM = #{sfzlxdm},</if>
+            <if test="zjlx != null">ZJLX = #{zjlx},</if>
+            <if test="syd != null">SYD = #{syd},</if>
+            <if test="lqh != null">LQH = #{lqh},</if>
+            <if test="txdz != null">TXDZ = #{txdz},</if>
+            <if test="zkzh != null">ZKZH = #{zkzh},</if>
+            <if test="zzmm != null">ZZMM = #{zzmm},</if>
+            <if test="zzmmdm != null">ZZMMDM = #{zzmmdm},</if>
+            <if test="tc != null">TC = #{tc},</if>
+            <if test="zsjd != null">ZSJD = #{zsjd},</if>
+            <if test="kslbdm != null">KSLBDM = #{kslbdm},</if>
+            <if test="zp != null">ZP = #{zp},</if>
+            <if test="rxcj != null">RXCJ = #{rxcj},</if>
+            <if test="xh != null">XH = #{xh},</if>
+            <if test="xgr != null">XGR = #{xgr},</if>
+            <if test="cjsj != null">CJSJ = #{cjsj},</if>
+            <if test="pyccmc != null">PYCCMC = #{pyccmc},</if>
+            <if test="pyccdm != null">PYCCDM = #{pyccdm},</if>
+            <if test="dwmc != null">DWMC = #{dwmc},</if>
+            <if test="dwdm != null">DWDM = #{dwdm},</if>
+            <if test="xkmldm != null">XKMLDM = #{xkmldm},</if>
+            <if test="zymc != null">ZYMC = #{zymc},</if>
+            <if test="zydm != null">ZYDM = #{zydm},</if>
+            <if test="bjjc != null">BJJC = #{bjjc},</if>
+            <if test="bjdm != null">BJDM = #{bjdm},</if>
+            <if test="rxnf != null">RXNF = #{rxnf},</if>
+            <if test="sfzx != null">SFZX = #{sfzx},</if>
+            <if test="zcxdnx != null">ZCXDNX = #{zcxdnx},</if>
+            <if test="pyfsdm != null">PYFSDM = #{pyfsdm},</if>
+            <if test="xsdqztdm != null">XSDQZTDM = #{xsdqztdm},</if>
+            <if test="zyfxmc != null">ZYFXMC = #{zyfxmc},</if>
+            <if test="ksh != null">KSH = #{ksh},</if>
+            <if test="byzy != null">BYZY = #{byzy},</if>
+            <if test="xslbdm != null">XSLBDM = #{xslbdm},</if>
+            <if test="xslb != null">XSLB = #{xslb},</if>
+            <if test="xjztdm != null">XJZTDM = #{xjztdm},</if>
+            <if test="xjztmc != null">XJZTMC = #{xjztmc},</if>
+            <if test="dqnj != null">DQNJ = #{dqnj},</if>
+            <if test="rxrq != null">RXRQ = #{rxrq},</if>
+            <if test="lxdh != null">LXDH = #{lxdh},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where XM = #{xm}
+    </update>
+
+    <delete id="deleteZtsjZtsjJwzxsxxQywxById" parameterType="String">
+        delete from ztsj_ztsj_jwzxsxx_qywx where XM = #{xm}
+    </delete>
+
+    <delete id="deleteZtsjZtsjJwzxsxxQywxByIds" parameterType="String">
+        delete from ztsj_ztsj_jwzxsxx_qywx where XM in 
+        <foreach item="xm" collection="array" open="(" separator="," close=")">
+            #{xm}
+        </foreach>
+    </delete>
+</mapper>

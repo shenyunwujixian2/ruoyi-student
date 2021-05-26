@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.offline.mapper.RsxxRsxtZgjzgxxsjQywxMapper">
+    
+    <resultMap type="RsxxRsxtZgjzgxxsjQywx" id="RsxxRsxtZgjzgxxsjQywxResult">
+        <result property="jzgh"    column="JZGH"    />
+        <result property="xm"    column="XM"    />
+        <result property="dwmc"    column="DWMC"    />
+        <result property="csrq"    column="CSRQ"    />
+        <result property="xb"    column="XB"    />
+        <result property="xbdm"    column="XBDM"    />
+        <result property="sfzjh"    column="SFZJH"    />
+        <result property="mz"    column="MZ"    />
+        <result property="jg"    column="JG"    />
+        <result property="nl"    column="NL"    />
+        <result property="zgzt"    column="ZGZT"    />
+        <result property="rylb"    column="RYLB"    />
+        <result property="zwmc"    column="ZWMC"    />
+        <result property="bzlbmc"    column="BZLBMC"    />
+        <result property="gwmc"    column="GWMC"    />
+        <result property="dcDcfieldaud"    column="DC_DCFIELDAUD"    />
+        <result property="dcDcdatadate"    column="DC_DCDATADATE"    />
+        <result property="dcDctimestamp"    column="DC_DCTIMESTAMP"    />
+    </resultMap>
+
+    <sql id="selectRsxxRsxtZgjzgxxsjQywxVo">
+        select JZGH, XM, DWMC, CSRQ, XB, XBDM, SFZJH, MZ, JG, NL, ZGZT, RYLB, ZWMC, BZLBMC, GWMC, DC_DCFIELDAUD, DC_DCDATADATE, DC_DCTIMESTAMP from rsxx_rsxt_zgjzgxxsj_qywx
+    </sql>
+
+    <select id="selectRsxxRsxtZgjzgxxsjQywxList" parameterType="RsxxRsxtZgjzgxxsjQywx" resultMap="RsxxRsxtZgjzgxxsjQywxResult">
+        <include refid="selectRsxxRsxtZgjzgxxsjQywxVo"/>
+        <where>  
+            <if test="jzgh != null  and jzgh != ''"> and JZGH = #{jzgh}</if>
+            <if test="xm != null  and xm != ''"> and XM = #{xm}</if>
+            <if test="dwmc != null  and dwmc != ''"> and DWMC = #{dwmc}</if>
+            <if test="csrq != null  and csrq != ''"> and CSRQ = #{csrq}</if>
+            <if test="xb != null  and xb != ''"> and XB = #{xb}</if>
+            <if test="xbdm != null  and xbdm != ''"> and XBDM = #{xbdm}</if>
+            <if test="sfzjh != null  and sfzjh != ''"> and SFZJH = #{sfzjh}</if>
+            <if test="mz != null  and mz != ''"> and MZ = #{mz}</if>
+            <if test="jg != null  and jg != ''"> and JG = #{jg}</if>
+            <if test="nl != null  and nl != ''"> and NL = #{nl}</if>
+            <if test="zgzt != null  and zgzt != ''"> and ZGZT = #{zgzt}</if>
+            <if test="rylb != null  and rylb != ''"> and RYLB = #{rylb}</if>
+            <if test="zwmc != null  and zwmc != ''"> and ZWMC = #{zwmc}</if>
+            <if test="bzlbmc != null  and bzlbmc != ''"> and BZLBMC = #{bzlbmc}</if>
+            <if test="gwmc != null  and gwmc != ''"> and GWMC = #{gwmc}</if>
+            <if test="dcDcfieldaud != null  and dcDcfieldaud != ''"> and DC_DCFIELDAUD = #{dcDcfieldaud}</if>
+            <if test="dcDcdatadate != null  and dcDcdatadate != ''"> and DC_DCDATADATE = #{dcDcdatadate}</if>
+            <if test="dcDctimestamp != null "> and DC_DCTIMESTAMP = #{dcDctimestamp}</if>
+        </where>
+    </select>
+    
+    <select id="selectRsxxRsxtZgjzgxxsjQywxById" parameterType="String" resultMap="RsxxRsxtZgjzgxxsjQywxResult">
+        <include refid="selectRsxxRsxtZgjzgxxsjQywxVo"/>
+        where JZGH = #{jzgh}
+    </select>
+        
+    <insert id="insertRsxxRsxtZgjzgxxsjQywx" parameterType="RsxxRsxtZgjzgxxsjQywx">
+        insert into rsxx_rsxt_zgjzgxxsj_qywx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="jzgh != null">JZGH,</if>
+            <if test="xm != null">XM,</if>
+            <if test="dwmc != null">DWMC,</if>
+            <if test="csrq != null">CSRQ,</if>
+            <if test="xb != null">XB,</if>
+            <if test="xbdm != null">XBDM,</if>
+            <if test="sfzjh != null">SFZJH,</if>
+            <if test="mz != null">MZ,</if>
+            <if test="jg != null">JG,</if>
+            <if test="nl != null">NL,</if>
+            <if test="zgzt != null">ZGZT,</if>
+            <if test="rylb != null">RYLB,</if>
+            <if test="zwmc != null">ZWMC,</if>
+            <if test="bzlbmc != null">BZLBMC,</if>
+            <if test="gwmc != null">GWMC,</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD,</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE,</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="jzgh != null">#{jzgh},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="csrq != null">#{csrq},</if>
+            <if test="xb != null">#{xb},</if>
+            <if test="xbdm != null">#{xbdm},</if>
+            <if test="sfzjh != null">#{sfzjh},</if>
+            <if test="mz != null">#{mz},</if>
+            <if test="jg != null">#{jg},</if>
+            <if test="nl != null">#{nl},</if>
+            <if test="zgzt != null">#{zgzt},</if>
+            <if test="rylb != null">#{rylb},</if>
+            <if test="zwmc != null">#{zwmc},</if>
+            <if test="bzlbmc != null">#{bzlbmc},</if>
+            <if test="gwmc != null">#{gwmc},</if>
+            <if test="dcDcfieldaud != null">#{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">#{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">#{dcDctimestamp},</if>
+         </trim>
+    </insert>
+
+    <update id="updateRsxxRsxtZgjzgxxsjQywx" parameterType="RsxxRsxtZgjzgxxsjQywx">
+        update rsxx_rsxt_zgjzgxxsj_qywx
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xm != null">XM = #{xm},</if>
+            <if test="dwmc != null">DWMC = #{dwmc},</if>
+            <if test="csrq != null">CSRQ = #{csrq},</if>
+            <if test="xb != null">XB = #{xb},</if>
+            <if test="xbdm != null">XBDM = #{xbdm},</if>
+            <if test="sfzjh != null">SFZJH = #{sfzjh},</if>
+            <if test="mz != null">MZ = #{mz},</if>
+            <if test="jg != null">JG = #{jg},</if>
+            <if test="nl != null">NL = #{nl},</if>
+            <if test="zgzt != null">ZGZT = #{zgzt},</if>
+            <if test="rylb != null">RYLB = #{rylb},</if>
+            <if test="zwmc != null">ZWMC = #{zwmc},</if>
+            <if test="bzlbmc != null">BZLBMC = #{bzlbmc},</if>
+            <if test="gwmc != null">GWMC = #{gwmc},</if>
+            <if test="dcDcfieldaud != null">DC_DCFIELDAUD = #{dcDcfieldaud},</if>
+            <if test="dcDcdatadate != null">DC_DCDATADATE = #{dcDcdatadate},</if>
+            <if test="dcDctimestamp != null">DC_DCTIMESTAMP = #{dcDctimestamp},</if>
+        </trim>
+        where JZGH = #{jzgh}
+    </update>
+
+    <delete id="deleteRsxxRsxtZgjzgxxsjQywxById" parameterType="String">
+        delete from rsxx_rsxt_zgjzgxxsj_qywx where JZGH = #{jzgh}
+    </delete>
+
+    <delete id="deleteRsxxRsxtZgjzgxxsjQywxByIds" parameterType="String">
+        delete from rsxx_rsxt_zgjzgxxsj_qywx where JZGH in 
+        <foreach item="jzgh" collection="array" open="(" separator="," close=")">
+            #{jzgh}
+        </foreach>
+    </delete>
+</mapper>

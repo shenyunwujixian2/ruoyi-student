@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.dbbase.mapper.BdStudentGreadMapper">
+    
+    <resultMap type="BdStudentGread" id="BdStudentGreadResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="dqnj"    column="dqnj"    />
+        <result property="dwmc"    column="dwmc"    />
+        <result property="dwdm"    column="dwdm"    />
+        <result property="bjdm"    column="bjdm"    />
+        <result property="bjjc"    column="bjjc"    />
+        <result property="zymc"    column="zymc"    />
+        <result property="zydm"    column="zydm"    />
+        <result property="studentNum"    column="student_num"    />
+    </resultMap>
+
+    <sql id="selectBdStudentGreadVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, dqnj, dwmc, dwdm, bjdm, bjjc, student_num,zymc,zydm from bd_student_gread
+    </sql>
+
+    <select id="selectBdStudentGreadList" parameterType="BdStudentGread" resultMap="BdStudentGreadResult">
+        <include refid="selectBdStudentGreadVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="dqnj != null  and dqnj != ''"> and dqnj = #{dqnj}</if>
+            <if test="dwmc != null  and dwmc != ''"> and dwmc = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and dwdm = #{dwdm}</if>
+            <if test="bjdm != null  and bjdm != ''"> and bjdm = #{bjdm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and bjjc = #{bjjc}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and zydm = #{zydm}</if>
+            <if test="studentNum != null "> and student_num = #{studentNum}</if>
+        </where>
+    </select>
+
+    <select id="selectBdStudentGreadGroupZyList" parameterType="BdStudentGread" resultMap="BdStudentGreadResult">
+        <include refid="selectBdStudentGreadVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="dqnj != null  and dqnj != ''"> and dqnj = #{dqnj}</if>
+            <if test="dwmc != null  and dwmc != ''"> and dwmc = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and dwdm = #{dwdm}</if>
+            <if test="bjdm != null  and bjdm != ''"> and bjdm = #{bjdm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and bjjc = #{bjjc}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and zydm = #{zydm}</if>
+            <if test="studentNum != null "> and student_num = #{studentNum}</if>
+        </where>
+        <if test="searchValue != null and searchValue != ''"> group by ${searchValue} </if>
+    </select>
+    
+    <select id="selectBdStudentGreadById" parameterType="Long" resultMap="BdStudentGreadResult">
+        <include refid="selectBdStudentGreadVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBdStudentGread" parameterType="BdStudentGread" useGeneratedKeys="true" keyProperty="id">
+        insert into bd_student_gread
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="dqnj != null">dqnj,</if>
+            <if test="dwmc != null">dwmc,</if>
+            <if test="dwdm != null">dwdm,</if>
+            <if test="bjdm != null">bjdm,</if>
+            <if test="bjjc != null">bjjc,</if>
+            <if test="studentNum != null">student_num,</if>
+            <if test="zymc != null">zymc,</if>
+            <if test="zydm != null">zydm,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="dqnj != null">#{dqnj},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="bjjc != null">#{bjjc},</if>
+            <if test="studentNum != null">#{studentNum},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="zydm != null">#{zydm},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBdStudentGread" parameterType="BdStudentGread">
+        update bd_student_gread
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="dqnj != null">dqnj = #{dqnj},</if>
+            <if test="dwmc != null">dwmc = #{dwmc},</if>
+            <if test="dwdm != null">dwdm = #{dwdm},</if>
+            <if test="bjdm != null">bjdm = #{bjdm},</if>
+            <if test="bjjc != null">bjjc = #{bjjc},</if>
+            <if test="studentNum != null">student_num = #{studentNum},</if>
+            <if test="zymc != null">zymc = #{zymc},</if>
+            <if test="zydm != null">zydm = #{zydm},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBdStudentGreadById" parameterType="Long">
+        delete from bd_student_gread where id = #{id}
+    </delete>
+
+    <delete id="deleteBdStudentGreadByIds" parameterType="String">
+        delete from bd_student_gread where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

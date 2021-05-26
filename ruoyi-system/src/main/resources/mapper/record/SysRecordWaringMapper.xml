@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.record.mapper.SysRecordWaringMapper">
+    
+    <resultMap type="SysRecordWaring" id="SysRecordWaringResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="xh"    column="xh"    />
+        <result property="xm"    column="xm"    />
+        <result property="fastTime"    column="fast_time"    />
+        <result property="num"    column="num"    />
+        <result property="teachId"    column="teach_id"    />
+        <result property="teachName"    column="teach_name"    />
+        <result property="lateId"    column="late_id"    />
+        <result property="bmmc"    column="bmmc"    />
+        <result property="bmdm"    column="bmdm"    />
+        <result property="lxfs"    column="lxfs"    />
+        <result property="zymc"    column="zymc"    />
+        <result property="zydm"    column="zydm"    />
+        <result property="bjjc"    column="bjjc"    />
+        <result property="bjdm"    column="bjdm"    />
+        <result property="dwmc"    column="dwmc"    />
+        <result property="dwdm"    column="dwdm"    />
+        <result property="lateNum"    column="late_num"    />
+        <result property="noBackNum"    column="no_back_num"    />
+    </resultMap>
+
+    <sql id="selectSysRecordWaringVo">
+        select id, name, sort, user_id, create_by, create_time, update_by, update_time, remark, xh, xm, fast_time, num, teach_id, teach_name, late_id, bmmc, bmdm, lxfs, zymc, zydm, bjjc, bjdm,dwmc,dwdm,late_num,no_back_num from sys_record_waring
+    </sql>
+
+    <select id="selectSysRecordWaringList" parameterType="SysRecordWaring" resultMap="SysRecordWaringResult">
+        <include refid="selectSysRecordWaringVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="xh != null  and xh != ''"> and xh = #{xh}</if>
+            <if test="xm != null  and xm != ''"> and xm = #{xm}</if>
+            <if test="fastTime != null "> and fast_time = #{fastTime}</if>
+            <if test="num != null "> and num = #{num}</if>
+            <if test="teachId != null  and teachId != ''"> and teach_id = #{teachId}</if>
+            <if test="teachName != null  and teachName != ''"> and teach_name like concat('%', #{teachName}, '%')</if>
+            <if test="lateId != null  and lateId != ''"> and late_id = #{lateId}</if>
+            <if test="bmmc != null  and bmmc != ''"> and bmmc = #{bmmc}</if>
+            <if test="bmdm != null  and bmdm != ''"> and bmdm = #{bmdm}</if>
+            <if test="lxfs != null  and lxfs != ''"> and lxfs = #{lxfs}</if>
+            <if test="zymc != null  and zymc != ''"> and zymc = #{zymc}</if>
+            <if test="zydm != null  and zydm != ''"> and zydm = #{zydm}</if>
+            <if test="bjjc != null  and bjjc != ''"> and bjjc = #{bjjc}</if>
+            <if test="bjdm != null  and bjdm != ''"> and bjdm = #{bjdm}</if>
+            <if test="dwmc != null  and dwmc != ''"> and dwmc = #{dwmc}</if>
+            <if test="dwdm != null  and dwdm != ''"> and dwdm = #{dwdm}</if>
+            <if test="searchValue != null  and searchValue == 'getYellowList'"> and num &gt;=3 and num &lt; 10 </if>
+            <if test="searchValue != null  and searchValue == 'getRedList'"> and num &gt; 10 </if>
+            <if test="searchValue != null  and searchValue == 'yellowGroupByBjdm'"> and num &gt;=3 group by bjdm order by num desc </if>
+            <if test="searchValue != null  and searchValue == 'redGroupByBjdm'"> and num &gt; 10 group by bjdm order by num desc </if>
+        </where>
+
+
+    </select>
+    
+    <select id="selectSysRecordWaringById" parameterType="Long" resultMap="SysRecordWaringResult">
+        <include refid="selectSysRecordWaringVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSysRecordWaring" parameterType="SysRecordWaring" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_record_waring
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">name,</if>
+            <if test="sort != null">sort,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="xh != null">xh,</if>
+            <if test="xm != null">xm,</if>
+            <if test="fastTime != null">fast_time,</if>
+            <if test="num != null">num,</if>
+            <if test="teachId != null">teach_id,</if>
+            <if test="teachName != null">teach_name,</if>
+            <if test="lateId != null">late_id,</if>
+            <if test="bmmc != null">bmmc,</if>
+            <if test="bmdm != null">bmdm,</if>
+            <if test="lxfs != null">lxfs,</if>
+            <if test="zymc != null">zymc,</if>
+            <if test="zydm != null">zydm,</if>
+            <if test="bjjc != null">bjjc,</if>
+            <if test="bjdm != null">bjdm,</if>
+            <if test="dwmc != null">dwmc,</if>
+            <if test="dwdm != null">dwdm,</if>
+            <if test="lateNum != null">late_num,</if>
+            <if test="noBackNum != null">no_back_num,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">#{name},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="xh != null">#{xh},</if>
+            <if test="xm != null">#{xm},</if>
+            <if test="fastTime != null">#{fastTime},</if>
+            <if test="num != null">#{num},</if>
+            <if test="teachId != null">#{teachId},</if>
+            <if test="teachName != null">#{teachName},</if>
+            <if test="lateId != null">#{lateId},</if>
+            <if test="bmmc != null">#{bmmc},</if>
+            <if test="bmdm != null">#{bmdm},</if>
+            <if test="lxfs != null">#{lxfs},</if>
+            <if test="zymc != null">#{zymc},</if>
+            <if test="zydm != null">#{zydm},</if>
+            <if test="bjjc != null">#{bjjc},</if>
+            <if test="bjdm != null">#{bjdm},</if>
+            <if test="dwmc != null">#{dwmc},</if>
+            <if test="dwdm != null">#{dwdm},</if>
+            <if test="lateNum != null">#{lateNum},</if>
+            <if test="noBackNum != null">#{noBackNum},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysRecordWaring" parameterType="SysRecordWaring">
+        update sys_record_waring
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="xh != null">xh = #{xh},</if>
+            <if test="xm != null">xm = #{xm},</if>
+            <if test="fastTime != null">fast_time = #{fastTime},</if>
+            <if test="num != null">num = #{num},</if>
+            <if test="teachId != null">teach_id = #{teachId},</if>
+            <if test="teachName != null">teach_name = #{teachName},</if>
+            <if test="lateId != null">late_id = #{lateId},</if>
+            <if test="bmmc != null">bmmc = #{bmmc},</if>
+            <if test="bmdm != null">bmdm = #{bmdm},</if>
+            <if test="lxfs != null">lxfs = #{lxfs},</if>
+            <if test="zymc != null">zymc = #{zymc},</if>
+            <if test="zydm != null">zydm = #{zydm},</if>
+            <if test="bjjc != null">bjjc = #{bjjc},</if>
+            <if test="bjdm != null">bjdm = #{bjdm},</if>
+            <if test="dwmc != null">dwmc = #{dwmc},</if>
+            <if test="dwdm != null">dwdm = #{dwdm},</if>
+            <if test="lateNum != null">late_num = #{lateNum},</if>
+            <if test="noBackNum != null">no_back_num = #{noBackNum},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysRecordWaringById" parameterType="Long">
+        delete from sys_record_waring where id = #{id}
+    </delete>
+
+    <delete id="deleteSysRecordWaringByIds" parameterType="String">
+        delete from sys_record_waring where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <sql id="Base_Table_And_List_Where">
+        from sys_record_waring where 1=1
+
+        <if test="param.showTime != null and param.showTime != ''">
+            and `show_time` = #{param.showTime}
+        </if>
+        <if test="param.outStatus != null and param.outStatus != ''">
+            and `out_status` = #{param.outStatus}
+        </if>
+        <if test="param.inStatus != null and param.inStatus != ''">
+            and `in_status` = #{param.inStatus}
+        </if>
+        <if test="param.lateStatus != null and param.lateStatus != ''">
+            and `late_status` = #{param.lateStatus}
+        </if>
+        <if test="param.checkStatus != null and param.checkStatus != ''">
+            and `check_status` = #{param.checkStatus}
+        </if>
+        <if test="param.lastInorout != null and param.lastInorout != ''">
+            and `last_inorout` = #{param.lastInorout}
+        </if>
+        <if test="param.teachId != null and param.teachId != ''">
+            and `teach_id` = #{param.teachId}
+        </if>
+        <if test="param.teachName != null and param.teachName != ''">
+            and `teach_name` like CONCAT('%',#{param.teachName},'%')
+        </if>
+
+        <if test="param.xh != null and param.xh != ''">
+            and `xh` = #{param.xh}
+        </if>
+        <if test="param.lxfs != null and param.lxfs != ''">
+            and `lxfs` = #{param.lxfs}
+        </if>
+
+        <if test="param.dwdm != null and param.dwdm != ''">
+            and `dwdm` = #{param.dwdm}
+        </if>
+        <if test="param.xkmldm != null and param.xkmldm != ''">
+            and `xkmldm` = #{param.xkmldm}
+        </if>
+        <if test="param.zydm != null and param.zydm != ''">
+            and `zydm` = #{param.zydm}
+        </if>
+        <if test="param.bjdm != null and param.bjdm != ''">
+            and `bjdm` = #{param.bjdm}
+        </if>
+        <if test="param.getYellowWaring != null and param.getYellowWaring != ''">
+            and `late_num` &gt;= 3 and `late_num` &lt; 6
+        </if>
+        <if test="param.getRedWaring != null and param.getRedWaring != ''">
+            and  `late_num` &gt;= 6
+        </if>
+        <if test="param.startshowTime != null and param.startshowTime != '' and param.endshowTime != null and param.endshowTime != ''">
+            and fast_time between CONCAT(#{param.startshowTime},' 00:00:00') and CONCAT(#{param.endshowTime},' 23:59:59')
+        </if>
+
+        <if test="param.groupByField != null and param.groupByField != ''">
+            group by ${param.groupByField}
+        </if>
+    </sql>
+    <!-- 根据条件获取记录 -->
+    <select id="getCount"  parameterType="java.util.HashMap"  resultType="java.util.HashMap">
+        select * ,count(*) as allNum
+        <include refid="Base_Table_And_List_Where"/>
+    </select>
+</mapper>
